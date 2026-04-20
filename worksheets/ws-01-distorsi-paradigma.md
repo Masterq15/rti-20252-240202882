@@ -86,21 +86,21 @@ Pilih satu paper riset di bidang TI yang mengklaim "metode X meningkatkan perfor
 
 **Paper yang dipilih:**
 > Judul: Paradigma Kritis dalam Penelitian Sistem Informasi di Indonesia: Perlukah?
-> Penulis (Tahun): Agung Darono (2013)
+> Penulis (Tahun): Darono, Agung (2013)
 
 | Tahap | Apa yang Dilakukan | Potensi Distorsi |
 |-------|-------------------|-----------------|
-| Reality → Data | Kumpulkan studi tentang paradigma riset SI di Indonesia, dengan fokus bahwa artefak SI juga bagian dari interaksi sosial dan politik | Pilih literatur yang hanya mendukung kritik terhadap pendekatan positivis |
+| Reality → Data | Kumpulkan studi tentang paradigma riset SI di Indonesia | Bisa hanya pilih studi yang cocok dengan argumen kritis |
 | Data → Processing | Mengklasifikasi argumen, tema, dan bukti dari berbagai jurnal sistem informasi | Proses seleksi literatur dapat menyingkirkan penelitian yang bertentangan atau relevansi konteks lokal |
-| Processing → Analysis | Bandingkan cara tiap paradigma melihat artefak SI dan kontribusi sosialnya | Penulis bisa menekankan bukti yang mendukung paradigma kritis lebih dari bukti lain |
-| Analysis → Inference | Simpulkan bahwa paradigma kritis perlu dipertimbangkan dalam penelitian SI Indonesia | Kesimpulan bisa terlalu umum jika hanya berdasar beberapa studi atau area tertentu |
-| Inference → Knowledge | Klaim bahwa paradigma kritis relevan untuk riset SI Indonesia | Tidak semua topik SI cocok dengan pendekatan ini |
+| Processing → Analysis | Bandingkan kelebihan dan kekurangan tiap paradigma | Penulis bisa menonjolkan bukti yang mendukung pandangannya |
+| Analysis → Inference | Simpulkan apakah paradigma kritis perlu diadopsi | Kesimpulan bisa terlalu kuat tanpa bukti luas |
+| Inference → Knowledge | Klaim paradigma kritis penting untuk riset SI Indonesia | Tidak semua topik SI cocok dengan klaim itu |
 
 **Distorsi paling besar di tahap:** Inference → Knowledge
 
 **Dua distorsi spesifik yang teridentifikasi:**
 1. Pilih literatur yang mendukung paradigma kritis saja.
-2. Tarik kesimpulan bahwa paradigma kritis wajib dipakai tanpa bukti empiris lengkap.
+2. Tarik kesimpulan normatif tanpa bukti empiris cukup.
 
 ---
 
