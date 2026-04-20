@@ -67,33 +67,33 @@ Masalah riset yang layak harus memenuhi 5 kriteria:
 PROBLEM STATEMENT BUILDER
 
 Domain & Konteks
-  Domain   : ____________________
-  Konteks  : ____________________
+  Domain   : Teknologi Informasi (Cloud Computing)
+  Konteks  : Penggunaan infrastruktur IT dalam bisnis antara cloud computing dan infrastruktur tradisional
 
 System Context
-  Input       : ____________________
-  Process     : ____________________
-  Output      : ____________________
-  Outcome     : ____________________
-  Constraints : ____________________
-  Stakeholders: ____________________
+  Input       : Data kebutuhan bisnis, permintaan layanan IT, dan resource komputasi
+  Process     : Pengolahan data menggunakan sistem cloud atau infrastruktur tradisional
+  Output      : Layanan IT yang berjalan (aplikasi, penyimpanan, dll)
+  Outcome     : Efisiensi operasional dan pertumbuhan bisnis
+  Constraints : Koneksi internet, biaya, keamanan data
+  Stakeholders: Perusahaan, pengguna, penyedia layanan cloud
 
 Fenomena → Problem
-  Fenomena yang diamati             : ____________________
-  Gejala (symptom) yang terukur     : ____________________
-  Masalah yang didiagnosis          : ____________________
-  Masalah riset (researchable)      : ____________________
-  Variabel yang terukur             : ____________________
+  Fenomena yang diamati             : Banyak perusahaan mulai beralih ke cloud computing
+  Gejala (symptom) yang terukur     : Adanya peningkatan penggunaan cloud karena fleksibilitas dan skalabilitas
+  Masalah yang didiagnosis          : Belum jelas perbandingan efektivitas cloud dan infrastruktur tradisional secara spesifik
+  Masalah riset (researchable)      : Belum ada analisis yang terukur mengenai perbandingan manfaat dan dampak kedua teknologi dalam konteks bisnis
+  Variabel yang terukur             : fleksibilitas, biaya, keamanan data, dan efisiensi operasional
 
 Problem Quality Check
-  [ ] Clarity — Apakah satu orang membaca akan paham?
-  [ ] Measurability — Apakah ada metrik kuantitatif?
-  [ ] Relevance — Apakah penting untuk domain?
-  [ ] Testability — Apakah bisa gagal?
-  [ ] Impact — Apakah ada kontribusi jika terjawab?
+  [✓] Clarity — Apakah satu orang membaca akan paham?
+  [✓] Measurability — Apakah ada metrik kuantitatif?
+  [✓] Relevance — Apakah penting untuk domain?
+  [✓] Testability — Apakah bisa gagal?
+  [✓] Impact — Apakah ada kontribusi jika terjawab?
 
 Problem Statement (1 paragraf):
-  ____________________
+ Dalam konteks bisnis modern, banyak perusahaan dihadapkan pada pilihan antara cloud computing dan infrastruktur komputer tradisional, namun belum ada analisis yang benar-benar jelas dan terukur mengenai perbandingan manfaat, efisiensi, dan dampak dari kedua teknologi tersebut. Hal ini menyebabkan kesulitan dalam menentukan teknologi yang paling sesuai dengan kebutuhan bisnis. Oleh karena itu, diperlukan penelitian yang dapat mengukur dan membandingkan aspek seperti fleksibilitas, biaya, keamanan data, dan efisiensi operasional agar dapat memberikan dasar pengambilan keputusan yang lebih tepat.
 ```
 
 ---
@@ -102,18 +102,18 @@ Problem Statement (1 paragraf):
 
 Pilih satu topik di bidang TI yang diminati. Transformasikan melalui 5 tahap Problem Formation Model.
 
-**Topik awal:** ________________________________________
+**Topik awal:** Perbandingan cloud computing dan infrastruktur tradisional
 
 | Tahap | Hasil |
 |-------|-------|
-| Reality | *Contoh: Aplikasi e-commerce sering ditinggalkan saat checkout* |
-| Observed Issue (Symptom) | *Contoh: Bounce rate checkout 68%* |
-| Diagnosed Problem (Root Cause) | |
-| Researchable Problem | |
-| Measurable Variable | |
+| Reality | Perusahaan menggunakan sistem IT untuk operasional bisnis |
+| Observed Issue (Symptom) | banyak perusahaan beralih ke cloud computing |
+| Diagnosed Problem (Root Cause) | belum ada perbandingan yang jelas dan terukur antara kedua teknologi |
+| Researchable Problem | belum diketahui secara pasti dampak penggunaan cloud dibandingkan infrastruktur tradisional dalam bisnis |
+| Measurable Variable | biaya, fleksibilitas, keamanan, dan efisiensi |
 
-**Apakah terjebak solution-first thinking?** [ ] Ya / [ ] Tidak
-> Jika ya, kembali ke tahap mana? ________________________
+**Apakah terjebak solution-first thinking?** [ ] Ya / [✓] Tidak
+> tidak, karena fokusnya masih pada masalah, bukan langsung ke solusi.
 
 ---
 
@@ -123,15 +123,15 @@ Gambarkan konteks sistem dari masalah riset di Latihan 1.
 
 | Komponen | Deskripsi |
 |----------|----------|
-| Input | *Contoh: Request HTTP dari browser pengguna* |
-| Process | |
-| Output | |
-| Outcome | |
-| Constraints | |
-| Stakeholders | |
+| Input | Data bisnis dan kebutuhan sistem IT |
+| Process | Pengolahan menggunakan cloud atau sistem tradisional |
+| Output | layanan IT seperti aplikasi dan penyimpanan |
+| Outcome | Efisiensi dan peningkatan kinerja bisnis |
+| Constraints | Biaya, keamanan, dan koneksi internet |
+| Stakeholders | Perusahaan, pengguna, dan penyedia layanan |
 
-**Komponen mana yang paling relevan dengan masalah riset?** _______________
-
+**Komponen mana yang paling relevan dengan masalah riset?** 
+Process dan Outcome, karena berkaitan langsung dengan perbandingan kinerja kedua teknologi.
 ---
 
 ## Latihan 3 — Problem Quality Check
@@ -140,17 +140,16 @@ Evaluasi problem statement yang sudah dibuat menggunakan 5 kriteria.
 
 | Kriteria | Skor (1-5) | Justifikasi |
 |----------|-----------|-------------|
-| Clarity | *Contoh: 4 — cukup jelas tapi perlu spesifikasi dataset* | |
-| Measurability | | |
-| Relevance | | |
-| Testability | | |
-| Impact | | |
+| Clarity | 4| Sudah cukup jelas tapi masih bisa dipersempit |
+| Measurability |4 | Bisa diukur dengan beberapa variabel |
+| Relevance | 5 | Sangat penting di bidang IT |
+| Testability | 4| Bisa diuji dengan data |
+| Impact | 5 | Hasilnya bisa membantu perusahaan |
 
-**Skor total:** _____ / 25
+**Skor total:** 22 / 25
 
 **Problem statement versi final (1 paragraf):**
-> ___________________________________________________
-> ___________________________________________________
+> perusahaan saat ini dihadapkan pada pilihan antara cloud computing dan infrastruktur tradisional, namun belum ada perbandingan yang jelas dan terukur mengenai efektivitas keduanya dalam mendukung bisnis. Oleh karena itu, penelitian diperlukan untuk membandingkan aspek biaya, fleksibilitas, keamanan, dan efisiensi agar dapat membantu pengambilan keputusan yang lebih tepat.
 
 ---
 
@@ -159,5 +158,6 @@ Evaluasi problem statement yang sudah dibuat menggunakan 5 kriteria.
 > Bandingkan "masalah" yang biasa ditemui saat coding (bug, error) dengan masalah riset. Apa perbedaan fundamental dalam cara mendefinisikan dan mendekati keduanya?
 
 **Jawaban:**
-> ___________________________________________________
-> ___________________________________________________
+> Masalah saat coding biasanya langsung terlihat seperti error atau bug dan fokusnya untuk diperbaiki.
+
+>Sedangkan masalah riset lebih ke mencari penyebab dan membuktikan sesuatu, jadi harus lebih terstruktur dan tidak langsung ke solusi.
