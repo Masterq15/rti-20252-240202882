@@ -67,25 +67,29 @@ Jika variabel tidak bisa di-map ke komponen apapun → arsitektur perlu didesain
 ```
 SYSTEM-EXPERIMENT MAPPING
 
-Research Question: ____________________
+Research Question: Apakah platform web (Elena UNNES) menghasilkan kepuasan pengguna yang signifikan berbeda dengan platform mobile pada mata kuliah Sistem Operasi?
 
 Variable → Component Mapping:
 | Variabel | Tipe | Komponen Sistem | Cara Manipulasi/Pengukuran |
 |----------|------|-----------------|---------------------------|
-|          | IV   |                 |                           |
-|          | DV   |                 |                           |
-|          | CV   |                 |                           |
+| Platform Type (Web vs Mobile) | IV | Elena UNNES (LMS web) vs YouTube app + mobile app | User choice observasi (quasi-experimental design) |
+| Learning Satisfaction (UEQ) | DV | UI/UX, content delivery, interactivity features | Questionnaire post-usage 4 minggu |
+| Ease of Use (SUS) | DV | Navigation, menu organization, accessibility | Questionnaire integrated atau external survey |
+| Response Time | DV | Server backend, network infrastructure, client rendering | Automated monitoring Chrome DevTools / Android Profiler |
+| Memory Usage | DV | Application runtime, caching, resource allocation | Memory profiling tools during typical 1-hour session |
+| Learning Context | CV | Sistem Operasi, praktik-heavy course | Tetap konsisten untuk semua responden |
+| Semester | CV | Semester genap, tahun akademik sama | Tetap konsisten untuk semua responden |
 
 4 Prinsip Desain:
-  [ ] Traceability — Setiap komponen bisa ditelusuri ke variabel
-  [ ] Variable Isolation — IV bisa diubah tanpa mengubah CV
-  [ ] Measurement Integration — Pengukuran DV built-in
-  [ ] Reproducibility — Setup bisa direkonstruksi
+  [✓] Traceability — Setiap komponen bisa ditelusuri ke variabel
+  [✓] Variable Isolation — IV bisa diubah tanpa mengubah CV
+  [✓] Measurement Integration — Pengukuran DV built-in
+  [✓] Reproducibility — Setup bisa direkonstruksi
 
 Experimental Setup:
-  Input data     : ____________________
-  Parameter      : ____________________
-  Output format  : ____________________
+  Input data     : User demographics, course materials, baseline platform usage
+  Parameter      : Platform assignment (observational), survey timing, profiling duration
+  Output format  : CSV questionnaire responses, JSON performance logs, statistical analysis reports
 ```
 
 ---
@@ -94,16 +98,20 @@ Experimental Setup:
 
 Gunakan RQ dan variabel dari WS-05. Petakan ke komponen sistem.
 
-**RQ:** __________________________________________________
+**RQ:** Apakah platform web (Elena UNNES) menghasilkan kepuasan pengguna yang signifikan berbeda dengan platform mobile pada mata kuliah Sistem Operasi?
 
 | Variabel | Tipe | Komponen Sistem | Cara Manipulasi / Pengukuran |
 |----------|------|-----------------|---------------------------|
-| *Contoh: Jenis model* | *IV* | *Modul classifier (swap RF ↔ CNN)* | *Ganti config `model_type`* |
-| | DV | | |
-| | CV | | |
+| Platform Type (Web vs Mobile) | IV | Elena UNNES (LMS web) vs YouTube app + mobile app | User choice observasi (quasi-experimental design) |
+| Learning Satisfaction (UEQ) | DV | UI/UX, content delivery, interactivity features | Questionnaire post-usage 4 minggu |
+| Ease of Use (SUS) | DV | Navigation, menu organization, accessibility | Questionnaire integrated atau external survey |
+| Response Time | DV | Server backend, network infrastructure, client rendering | Automated monitoring Chrome DevTools / Android Profiler |
+| Memory Usage | DV | Application runtime, caching, resource allocation | Memory profiling tools during typical 1-hour session |
+| Learning Context | CV | Sistem Operasi, praktik-heavy course | Tetap konsisten untuk semua responden |
+| Semester | CV | Semester genap, tahun akademik sama | Tetap konsisten untuk semua responden |
 
-**Apakah semua variabel bisa di-map?** [ ] Ya / [ ] Tidak
-> Jika tidak, komponen apa yang perlu ditambahkan? _________
+**Apakah semua variabel bisa di-map?** [✓] Ya / [ ] Tidak
+> Jika tidak, komponen apa yang perlu ditambahkan? Semua variabel ter-map dengan jelas
 
 ---
 
@@ -111,16 +119,14 @@ Gunakan RQ dan variabel dari WS-05. Petakan ke komponen sistem.
 
 Evaluasi desain sistem terhadap 4 prinsip.
 
-| Prinsip | Status | Bukti / Penjelasan |
-|---------|--------|-------------------|
-| Traceability | *Contoh: ✅ — setiap modul punya label variabel* | |
-| Modularity | | |
-| Controllability | | |
-| Measurability | | |
+| Traceability | ✓ | Setiap komponen (Elena, YouTube) mapped ke IV; DV metrics clearly defined |
+| Modularity | ✓ | Platforms independent, metrics independent, bisa analyzed separately |
+| Controllability | ⚠ | User choice uncontrollable, tapi semester/context tetap terkontrol |
+| Measurability | ✓ | Semua DV measurable: UEQ (1-7), SUS (0-100), response time (ms), memory (kB) |
 
-**Prinsip mana yang paling sulit dipenuhi?** _______________
+**Prinsip mana yang paling sulit dipenuhi?** Controllability (user choice)
 **Strategi untuk mengatasinya:**
-> ___________________________________________________
+> Gunakan stratified random sampling atau matching berdasarkan demographics. Gunakan statistical controls (ANCOVA) untuk reduce confounding effects dari unobserved variables
 
 ---
 
@@ -128,16 +134,16 @@ Evaluasi desain sistem terhadap 4 prinsip.
 
 Jika sistem memiliki 3 komponen utama, rencanakan ablation study.
 
-| Kondisi | Komponen A | Komponen B | Komponen C | Hasil yang Diharapkan |
+| Kondisi | Platform Web | Platform Mobile | Fitur Interaktif | Hasil yang Diharapkan |
 |---------|-----------|-----------|-----------|----------------------|
-| Full | *Contoh: ✅ CNN* | *Contoh: ✅ Temporal features* | *Contoh: ✅ Z-score norm* | *Baseline penuh* |
-| – A | ❌ (ganti RF) | ✅ | ✅ | |
-| – B | ✅ | ❌ (tanpa temporal) | ✅ | |
-| – C | ✅ | ✅ | ❌ (tanpa normalisasi) | |
+| Full | ✓ Elena complete | ✓ YouTube complete | ✓ Discussion, quiz | Baseline: satisfaction optimal |
+| – Web UI | ❌ (simplified) | ✓ | ✓ | Impact UI complexity pada satisfaction |
+| – Mobile Responsiveness | ✓ | ❌ (non-optimized) | ✓ | Impact mobile optimization pada ease of use |
+| – Interactivity | ✓ | ✓ | ❌ (read-only) | Impact interactive features pada satisfaction |
 
-**Komponen mana yang diprediksi paling berkontribusi?** _____
+**Komponen mana yang diprediksi paling berkontribusi?** Platform optimization untuk device-nya (web for desktop, mobile for smartphone)
 **Mengapa?**
-> ___________________________________________________
+> Papers 1-4 show technical performance significantly impacts satisfaction. Mobile optimization directly affects response time → perceived usability → satisfaction. More critical than UI complexity for platform satisfaction
 
 ---
 
@@ -145,6 +151,11 @@ Jika sistem memiliki 3 komponen utama, rencanakan ablation study.
 
 > Apa risiko jika sistem dibangun seperti produk (monolitik, fitur lengkap) lalu baru dilakukan eksperimen? Mengapa arsitektur modular penting untuk riset?
 
+## Refleksi
+
+> Apa risiko jika sistem dibangun seperti produk (monolitik, fitur lengkap) lalu baru dilakukan eksperimen? Mengapa arsitektur modular penting untuk riset?
+
 **Jawaban:**
-> ___________________________________________________
-> ___________________________________________________
+> **Risiko monolitik**: Jika Elena UNNES dibangun dengan semua fitur built-in tanpa isolasi, tidak bisa tahu: apakah satisfaction naik karena UI design bagus, atau karena video features, atau notification system? Tidak bisa ablation study. Paper 1 report Elena 79.4%, tapi kontributor utamanya apa? Tidak tahu karena tidak ada ablation. Gejala: masalah performance mendadak → tidak bisa isolate apakah dari server backend, network latency, atau client rendering?
+>
+> **Mengapa modular penting**: Paper 4 (PWA vs Mobile Web) implicit show ini → bisa isolate technical aspects (response time, memory, storage) terpisah dari pedagogical aspects (satisfaction). Modular design memungkinkan: (1) **Variable isolation**: Ubah 1 komponen (notification on/off), lihat dampaknya tanpa affect lain. (2) **Troubleshooting**: Learning outcome turun? Cek mana component culprit (cache strategy? API latency?). (3) **Replicability**: Orang lain reconstruct eksperimen dengan config file, bukan re-engineer sistem. Paper 2 (SLR) menunjukkan aplikasi profesional dibangun modular (separate backend PHP/MySQL, frontend Android/web) untuk support evolution dan testing. Implication: untuk riset, demand sistem yang configurable (YAML/JSON config) bukan hardcoded logic."
