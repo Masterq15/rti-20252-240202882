@@ -66,19 +66,21 @@ Metrik harus ditentukan **sebelum** eksperimen. Memilih metrik setelah melihat d
 ```
 VARIABLE & METRIC DEFINITION
 
-Research Question: ____________________
+Research Question: Apakah platform web (Elena UNNES) menghasilkan kepuasan pengguna yang signifikan berbeda dengan platform mobile (YouTube + dedicated app) pada mata kuliah Sistem Operasi?
 
 | Variabel | Tipe | Konsep | Metrik | Skala | Satuan | Cara Mengukur | Justifikasi |
 |----------|------|--------|--------|-------|--------|---------------|-------------|
-|          | IV   |        |        |       |        |               |             |
-|          | DV   |        |        |       |        |               |             |
-|          | CV   |        |        |       |        |               |             |
+| Platform/Jenis Media | IV | Pendekatan penyampaian pembelajaran | Categorical: Web (Elena) vs Mobile (YouTube) | Nominal | - | Survey response pada baseline selection | Berdasarkan penggunaan aktual mahasiswa (Paper 1) |
+| Learning Satisfaction | DV | Kepuasan pengguna terhadap pengalaman belajar | UEQ score (6 dimensi) | Interval | 1-7 | Kuesioner UEQ post-usage | Standard tool untuk UX measurement (Papers 1,5) |
+| Ease of Use | DV | Kemudahan dalam menggunakan platform | SUS score | Interval | 0-100 | Kuesioner SUS post-usage | Validated usability scale (Paper 1) |
+| Response Time | DV | Kecepatan sistem merespons tindakan pengguna | Waktu loading halaman/API | Ratio | ms | Chrome DevTools Network tab | Technical metric untuk performance (Paper 4) |
+| Memory Usage | DV | Efisiensi penggunaan memory system | Ukuran memory runtime | Ratio | kB | Android Studio Profiler / Chrome DevTools | Critical untuk mobile platform limitation (Paper 4) |
 
 Alignment Check:
   RQ → Concept → Variable → Metric → Data → Result
-  [ ] Setiap langkah terdokumentasi
-  [ ] Tidak ada "lompatan logis"
-  [ ] Metrik mengukur apa yang dimaksud (construct validity)
+  [✓] Setiap langkah terdokumentasi
+  [✓] Tidak ada "lompatan logis"
+  [✓] Metrik mengukur apa yang dimaksud (construct validity)
 ```
 
 ---
@@ -87,16 +89,18 @@ Alignment Check:
 
 Gunakan RQ dari WS-04. Definisikan variabel dan metriknya.
 
-**RQ:** __________________________________________________
+**RQ:** Apakah platform web (Elena UNNES) menghasilkan kepuasan pengguna yang signifikan berbeda dengan platform mobile (YouTube + dedicated app) pada mata kuliah Sistem Operasi?
 
 | Variabel | Tipe | Konsep Abstrak | Metrik Konkret | Skala (NOIR) | Satuan |
 |----------|------|---------------|----------------|-------------|--------|
-| *Contoh: Jenis model* | *IV* | *Pendekatan klasifikasi* | *Categorical: CNN vs RF* | *Nominal* | *—* |
-| | DV | | | | |
-| | CV | | | | |
+| Platform/Jenis Media | IV | Pendekatan penyampaian pembelajaran | Categorical: Web (Elena) vs Mobile (YouTube) | Nominal | - |
+| Learning Satisfaction | DV | Kepuasan pengguna terhadap pengalaman belajar | UEQ score (Attractiveness, Perspicuity, Efficiency, Dependability, Stimulation, Novelty) | Interval | 1-7 skala |
+| Ease of Use | DV | Kemudahan dalam menggunakan platform | SUS (System Usability Scale) score | Interval | 0-100 |
+| Response Time | DV (Technical) | Kecepatan sistem merespons tindakan pengguna | Waktu loading halaman / API response | Ratio | milliseconds (ms) |
+| Memory Usage | DV (Technical) | Efisiensi penggunaan memory system | Ukuran memory yang dikonsumsi saat runtime | Ratio | kilobytes (kB) |
 
-**Apakah ada lompatan logis dalam rantai?** [ ] Ya / [ ] Tidak
-> Jika ya, di mana? ____________________________________
+**Apakah ada lompatan logis dalam rantai?** [ ] Ya / [✓] Tidak
+> Jika ya, di mana? Rantai logis: Learning Satisfaction adalah dampak langsung dari pengalaman pengguna → diukur via UEQ yang valid. Technical metrics adalah karakteristik platform yang mempengaruhi satisfaction."
 
 ---
 
@@ -106,15 +110,15 @@ Evaluasi metrik DV yang dipilih di Latihan 1 menggunakan 3 kriteria.
 
 | Kriteria | Skor (1-5) | Justifikasi |
 |----------|-----------|-------------|
-| Representative | *Contoh: 4 — F1-Score mewakili keseimbangan precision-recall* | |
-| Sensitive | | |
-| Feasible | | |
+| Representative | 5 | UEQ adalah instrumen standar untuk user experience evaluation, mencakup 6 dimensi komprehensif. Sudah terbukti valid di e-learning (Paper 5) |
+| Sensitive | 4 | UEQ menggunakan skala 1-7 cukup granular. Technical metrics sangat sensitif terhadap perbedaan platform. Kemungkinan ceiling effect minimal |
+| Feasible | 5 | Kuesioner online efisien. Technical metrics via Chrome DevTools (web) dan Android Profiler (mobile) tanpa cost |
 
-**Apakah perlu secondary metric?** [ ] Ya / [ ] Tidak
-> Jika ya, apa dan mengapa? _____________________________
+**Apakah perlu secondary metric?** [✓] Ya / [ ] Tidak
+> Jika ya, apa dan mengapa? Learning Outcome (score praktikum) sebagai secondary metric untuk memvalidasi apakah kepuasan berkorelasi dengan pencapaian pembelajaran aktual
 
 **Contoh kasus ceiling effect untuk metrik ini:**
-> ___________________________________________________
+> Jika Elena UNNES sudah sangat familiar bagi mahasiswa, skor satisfaction bisa tinggi bahkan meski ada improvement → perlu perbandingan dengan platform baru untuk mendeteksi perbedaan"
 
 ---
 
@@ -124,10 +128,10 @@ Bayangkan data yang akan dikumpulkan dari eksperimen. Evaluasi 4 dimensi kualita
 
 | Dimensi | Pertanyaan | Jawaban | Strategi Mitigasi |
 |---------|-----------|---------|------------------|
-| Completeness | *Apakah semua data point terkumpul?* | | |
-| Consistency | *Apakah ada kontradiksi internal?* | | |
-| Validity | *Apakah benar-benar mengukur yang dimaksud?* | | |
-| Representativeness | *Apakah sampel mewakili populasi target?* | | |
+| Completeness | *Apakah semua data point terkumpul?* | Semua 50 responden diharapkan submit kuesioner, tapi kemungkinan 10-15% dropout | Pengingat berkala via email/WhatsApp, insentif partisipasi, follow-up untuk non-responden |
+| Consistency | *Apakah ada kontradiksi internal?* | Kemungkinan ada responden dengan rating satisfaction tinggi tapi ease of use rendah | Review data mentah, cek outliers, wawancara follow-up untuk cases tidak konsisten |
+| Validity | *Apakah benar-benar mengukur yang dimaksud?* | UEQ sudah valid instrument, tapi perlu memastikan pemahaman responden | Pilot test dengan 5-10 mahasiswa, revisi pertanyaan yang membingungkan |
+| Representativeness | *Apakah sampel mewakili populasi target?* | 50 dari ~200 mahasiswa (25%) yang ambil OS → representative jika random sampling | Random sampling, stratifikasi berdasarkan semester, pastikan web vs mobile user balanced |
 
 ---
 
@@ -136,5 +140,6 @@ Bayangkan data yang akan dikumpulkan dari eksperimen. Evaluasi 4 dimensi kualita
 > Mengapa memilih metrik setelah melihat data dianggap p-hacking? Apa bedanya dengan eksplorasi data yang sah?
 
 **Jawaban:**
-> ___________________________________________________
-> ___________________________________________________
+> **P-hacking (cherry-picking metrik)**: Lihat data hasil → pilih hanya metrik yang "significant". Contoh buruk: Paper 3 melakukan t-test pada 9 indikator, jika semua non-significant tapi kemudian "post-hoc" lihat sub-grup tertentu (misal: hanya pengguna usia < 20) dan report "dalam sub-grup ini perbedaan signifikan" TANPA pre-register → p-hacking. Probability menemukan spurious significant result by chance naik drastis dengan multiple tests.
+>
+> **Eksplorasi data seyogyanya**: (1) Pre-register PRIMARY metric SEBELUM collect data. (2) Setelah eksperimen, boleh explore SECONDARY metrics dan label "exploratory". (3) Adjust p-value dengan Bonferroni: α=0.05/9 untuk 9 tests. (4) Jelaskan kenapa explore metrik tambahan. Paper 4 (PWA vs Mobile Web) do this well: report semua metrics (response time, memory, storage) dengan clear hypothesis, tidak cherry-pick.
