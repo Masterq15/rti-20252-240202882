@@ -61,39 +61,44 @@ Membandingkan deep learning 2024 dengan decision tree sederhana tanpa justifikas
 ```
 LITERATURE MAPPING
 
-Topik      : ____________________
-Database   : ____________________
-Query      : ____________________
-Tahun      : ____________________
-Hasil awal : ____ paper → Screening → ____ paper final
+Topik      : Perbandingan Efektivitas dan Efisiensi Platform Web vs Mobile untuk Pembelajaran
+Database   : Google Scholar, IEEE Xplore, UNNES Repository
+Query      : "web vs mobile learning", "e-learning platform comparison", "mobile application education"
+Tahun      : 2015-2025
+Hasil awal : 5 paper → Screening → 5 paper final
 
 Literature Matrix (concept-centric):
 
 | Study | Tahun | Method | Data | Result | Limitation |
 |-------|-------|--------|------|--------|------------|
-|       |       |        |      |        |            |
+| Alfita et al. (Elena UNNES) | 2024 | Survei Kuesioner | 50 mahasiswa OS | Elena 79.4%, YouTube 78.3%, E-Book 75% | Hanya 3 platform, 1 mata kuliah |
+| Tri Wahyudi (SLR Apps) | 2022 | Systematic Literature Review | 15 artikel (2015-2022) | Sektor pendidikan dominan (6 artikel) | Fokus pada rancang bangun, bukan perbandingan |
+| Dalimunthe et al. (E-Learning Efficiency) | 2025 | Survei Kuantitatif | 90 mahasiswa | Sig > 0.05 (tidak berbeda signifikan) | Sample kecil, satu institusi |
+| Ridho et al. (PWA vs Mobile Web) | 2025 | Technical Testing | Halaman optimal/sedang/berat | PWA unggul untuk file besar | Pengujian terbatas pada performa teknis |
+| Prasetyaningsih et al. (Shopee UX) | 2023 | UEQ + FGD | 30 responden + 9 FGD | Keduanya punya kekuatan-kelemahan | Hanya e-commerce, tidak generalisir |
 
 Pola yang ditemukan:
-  Metode dominan     : ____________________
-  Dataset umum       : ____________________
-  Limitasi berulang  : ____________________
+  Metode dominan     : Survei kuantitatif + UX questionnaire (UEQ), fokus pada persepsi pengguna
+  Dataset umum       : Mahasiswa Indonesia, konteks pendidikan
+  Limitasi berulang  : Sample kecil, single-context (satu institusi/mata kuliah/platform), belum ada ablation study untuk fitur spesifik
 
 GAP IDENTIFICATION
 
-Gap 1: [Jenis: performance / method / data / context]
-  Deskripsi    : ____________________
-  Bukti        : ____________________
-  Signifikansi : ____________________
+Gap 1: [Jenis: method]
+  Deskripsi    : Belum ada integrated methodology yang menggabungkan technical metrics (response time, memory, storage) + user perception (UEQ) + learning outcome secara bersamaan
+  Bukti        : Papers 1-5 fokus terpisah: Paper 1 (UEQ satisfaction), Paper 4 (technical performance), belum ada yang mengintegrasikan
+  Signifikansi : Penting untuk mata kuliah praktik-heavy dimana technical limitation bisa mempengaruhi learning effectiveness
 
-Gap 2: [Jenis: ____]
-  Deskripsi    : ____________________
-  Bukti        : ____________________
-  Signifikansi : ____________________
+Gap 2: [Jenis: context]
+  Deskripsi    : Belum ada studi pada konteks pembelajaran dengan mata kuliah praktik-heavy (seperti Sistem Operasi) yang memerlukan hands-on experience
+  Bukti        : Papers 1,3,5 dalam konteks general e-learning, belum spesifik untuk mata kuliah dengan praktikum intensif
+  Signifikansi : Platform yang efektif untuk teori mungkin tidak sama untuk praktik yang memerlukan resources besar
 
 Baseline Selection:
 | Baseline | Relevansi | Representatif | Source |
 |----------|-----------|---------------|--------|
-|          |           |               |        |
+| Platform Web Tradisional (Elena UNNES berbasis Moodle) | Sudah digunakan di institusi pendidikan, umum untuk pembelajaran online | Digunakan di 35 dari 50 responden (70%), merepresentasikan platform e-learning LMS | Paper 1 (Alfita et al., 2024) |
+| Aplikasi Mobile Pembelajaran (YouTube + aplikasi dedicated) | Mobile learning semakin popular, fleksibel diakses, multifungsi | YouTube digunakan 12 dari 50 responden (24%), merepresentasikan trend mobile learning | Paper 1 (Alfita et al., 2024) + Paper 2 (Tri Wahyudi, 2022) |
 ```
 
 ---
@@ -102,20 +107,20 @@ Baseline Selection:
 
 Gunakan topik riset dari WS-02. Cari minimal 5 paper relevan menggunakan Google Scholar atau database lain.
 
-**Topik riset:** ________________________________________
-**Query pencarian:** ____________________________________
-**Database:** ___________________________________________
+**Topik riset:** Perbandingan Efektivitas dan Efisiensi Platform Web vs Mobile untuk Pembelajaran
+**Query pencarian:** "web vs mobile learning", "e-learning platform comparison", "mobile application education"
+**Database:** Google Scholar, IEEE Xplore, UNNES Repository (2015-2025)
 
 | # | Study | Tahun | Method | Dataset | Result | Limitasi |
 |---|-------|-------|--------|---------|--------|----------|
-| 1 | *Contoh: Rahman et al.* | *2023* | *CNN* | *ImageNet subset* | *Acc 91%* | *Hanya 3 kelas* |
-| 2 | | | | | | |
-| 3 | | | | | | |
-| 4 | | | | | | |
-| 5 | | | | | | |
+| 1 | Alfita et al. (Elena UNNES) | 2024 | Survei Kuesioner | 50 mahasiswa OS | Elena 79.4%, YouTube 78.3%, E-Book 75% | Hanya 3 platform, 1 mata kuliah |
+| 2 | Tri Wahyudi (SLR Apps) | 2022 | Systematic Literature Review | 15 artikel (2015-2022) | Sektor pendidikan dominan (6 artikel) | Fokus pada rancang bangun, bukan perbandingan |
+| 3 | Dalimunthe et al. (E-Learning Efficiency) | 2025 | Survei Kuantitatif | 90 mahasiswa | Sig > 0.05 (tidak berbeda signifikan) | Sample kecil, satu institusi |
+| 4 | Ridho et al. (PWA vs Mobile Web) | 2018 | Technical Testing | Halaman optimal/sedang/berat | PWA unggul untuk file besar | Pengujian terbatas pada performa teknis |
+| 5 | Prasetyaningsih et al. (Shopee UX) | 2023 | UEQ + FGD | 30 responden + 9 FGD | Keduanya punya kekuatan-kelemahan | Hanya e-commerce, tidak generalisir |
 
-**Pola yang terlihat — Metode dominan:** ___________________
-**Limitasi yang berulang:** ______________________________
+**Pola yang terlihat — Metode dominan:** Survei kuantitatif + UX questionnaire (UEQ), fokus pada persepsi pengguna
+**Limitasi yang berulang:** Sample kecil, single-context (satu institusi/mata kuliah/platform), belum ada ablation study untuk fitur spesifik
 
 ---
 
@@ -125,14 +130,14 @@ Berdasarkan tabel di Latihan 1, identifikasi gap.
 
 | Jenis Gap | Ditemukan? | Gap Statement |
 |-----------|-----------|---------------|
-| Performance Gap | [ ] Ya / [ ] Tidak | *Contoh: Akurasi turun di bawah 80% untuk kelas minoritas* |
-| Method Gap | [ ] Ya / [ ] Tidak | |
-| Data Gap | [ ] Ya / [ ] Tidak | |
-| Context Gap | [ ] Ya / [ ] Tidak | |
+| Performance Gap | [✓] Ya / [ ] Tidak | Penelitian menunjukkan kedua platform setara (Sig > 0.05), tapi belum diketahui pada mata kuliah/domain berbeda apakah perbedaan akan signifikan |
+| Method Gap | [✓] Ya / [ ] Tidak | Belum ada integrated methodology yang menggabungkan technical metrics (PWA vs Mobile Web) + user perception (UEQ) + learning outcome secara bersamaan |
+| Data Gap | [✓] Ya / [ ] Tidak | Data terbatas pada konteks Indonesia (UNNES, Shopee), belum ada cross-domain comparison (pembelajaran vs e-commerce vs layanan publik) |
+| Context Gap | [✓] Ya / [ ] Tidak | Belum ada studi pada konteks pembelajaran dengan mata kuliah praktik-heavy (seperti Sistem Operasi, Jaringan Komputer) yang memerlukan hands-on experience |
 
-**Gap utama yang dipilih:** _____________________________
+**Gap utama yang dipilih:** Method Gap + Context Gap (integrated approach untuk pembelajaran praktik-heavy)
 **Mengapa gap ini penting (bukan sekadar "belum ada yang meneliti")?**
-> ___________________________________________________
+> Penelitian sebelumnya tidak mengintegrasikan technical performance (response time, memory, storage) dengan pedagogical effectiveness (learning outcomes, satisfaction). Untuk mata kuliah praktik seperti Sistem Operasi, belum diketahui apakah mobile platform dengan keterbatasan memory/storage masih efektif untuk learning, atau apakah diperlukan web platform dengan resources lebih besar. Gap ini penting karena hasil akan membantu institusi memilih platform yang tepat untuk tipe mata kuliah berbeda.
 
 ---
 
@@ -142,11 +147,11 @@ Pilih 2 baseline dari literatur yang sudah dibaca.
 
 | # | Baseline | Mengapa Relevan | Mengapa Representatif | Apakah SOTA? | Sumber |
 |---|----------|----------------|----------------------|-------------|--------|
-| 1 | *Contoh: RF + TF-IDF* | *Task sama: klasifikasi teks* | *Dipakai 6 dari 10 paper* | *Bukan, tapi common practice* | *Lee et al., 2022* |
-| 2 | | | | | |
+| 1 | Platform Web Tradisional (Elena UNNES berbasis Moodle) | Sudah digunakan di institusi pendidikan, umum untuk pembelajaran online | Digunakan di 35 dari 50 responden (70%), merepresentasikan platform e-learning LMS | Bukan SOTA tapi common practice di akademik | Paper 1 (Alfita et al., 2024) |
+| 2 | Aplikasi Mobile Pembelajaran (YouTube + aplikasi dedicated) | Mobile learning semakin popular, fleksibel diakses, multifungsi | YouTube digunakan 12 dari 50 responden (24%), merepresentasikan trend mobile learning | Bukan SOTA tapi high adoption | Paper 1 (Alfita et al., 2024) + Paper 2 (SLR) |
 
-**Apakah pemilihan baseline ini bisa dianggap straw man?** [ ] Ya / [ ] Tidak
-> Justifikasi: ________________________________________
+**Apakah pemilihan baseline ini bisa dianggap straw man?** [✓] Ya / [ ] Tidak
+> Justifikasi: Sebelumnya Papers tidak membandingkan dengan SOTA seperti Progressive Web Apps (PWA) yang more advanced. Perlu ditambahkan PWA sebagai kontrol tambahan untuk menghindari straw man, agar perbandingan tidak hanya "web lama vs mobile" tapi juga "teknologi yang lebih modern". Namun, untuk MA ini akan fokus pada perbandingan yang sudah terbukti digunakan di institusi (Elena + YouTube) sebagai baseline utama yang representative.
 
 ---
 
@@ -155,5 +160,6 @@ Pilih 2 baseline dari literatur yang sudah dibaca.
 > Apa perbedaan antara "belum ada yang meneliti ini" (klaim tanpa bukti) dengan research gap yang valid? Bagaimana cara membuktikan bahwa sebuah gap benar-benar ada?
 
 **Jawaban:**
-> ___________________________________________________
-> ___________________________________________________
+> **Klaim tanpa bukti**: Hanya mengatakan "belum ada" tanpa pencarian sistematis. Contoh: "belum ada yang membandingkan web vs mobile untuk pembelajaran" padahal Papers 1, 3, 5 sudah membandingkan, hanya dengan fokus berbeda.
+>
+> **Gap yang valid**: Harus didukung bukti pencarian sistematis (SLR dengan query dokumentasi, screening process, backward/forward snowballing). Papers 1-5 semuanya membandingkan platform, TAPI tidak ada yang mengintegrasikan technical metrics (Paper 4: response time, memory) + pedagogical effectiveness (Paper 1: UEQ satisfaction score) + learning outcome secara bersamaan untuk mata kuliah praktik-heavy. INILAH gap yang valid. Cara membuktikan: (1) Dokumentasikan query pencarian di multiple databases, (2) Tunjukkan screening: berapa paper awal → berapa final, (3) Eksplikasikan pola limitation yang berulang di papers (sample kecil, single context, missing learning outcome), (4) Jelaskan mengapa research sebelumnya belum sufficient untuk menjawab problem spesifik.
