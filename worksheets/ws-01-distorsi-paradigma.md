@@ -61,21 +61,21 @@ Nama Peneliti    : Risky Dimas Nugroho
 Tanggal          : 12 April 2026
 
 1. Ketika membaca klaim "metode X 95% akurat":
-   - Pertanyaan pertama saya: Akurat untuk data apa dan apakah sudah diuji pada data baru?
-   - Data yang dibutuhkan untuk verifikasi: dataset lengkap, metode evaluasi, dan catatan apakah ada data yang dibuang.
+   - Pertanyaan pertama saya: Menurut saya, yang pertama harus dipertanyakan adalah dataset apa yang digunakan dan apakah data tersebut seimbang atau tidak.
+   - Data yang dibutuhkan untuk verifikasi: Menurut saya, dibutuhkan dataset asli, metode evaluasi, confusion matrix, serta perbandingan dengan metode lain.
 
 2. Posisi paradigma:
-   - Pendekatan: [x] Positivis  [ ] Interpretivis  [ ] Design Science  [ ] Mixed
-   - Alasan: klaim akurat bisa diuji lewat angka dan data.
+   - Pendekatan: [ ] Positivis  [✓] Interpretivis  [ ] Design Science  [ ] Mixed
+   - Alasan: Menurut saya, pendekatan yang digunakan lebih ke interpretivis karena penelitian ini banyak menggunakan studi literatur dan interpretasi terhadap data yang sudah ada.
 
 3. Identifikasi distorsi:
-   - Asumsi tersembunyi: hasil berlaku untuk semua kondisi.
-   - Sumber bias potensial: pilih data yang sesuai, buang hasil yang jelek.
-   - Langkah mitigasi: cek ulang data, laporkan prosesnya, bandingkan dengan studi lain.
+   - Asumsi tersembunyi: Menurut saya, ada asumsi bahwa cloud computing selalu lebih baik dibanding infrastruktur tradisional.
+   - Sumber bias potensial: Menurut saya, bias bisa muncul dari pemilihan literatur yang hanya mendukung keunggulan cloud computing.
+   - Langkah mitigasi: Menurut saya, perlu menggunakan sumber yang beragam dan juga menyertakan data empiris atau eksperimen langsung.
 
 4. Komitmen etika:
-   - Data yang tidak akan dimanipulasi: hasil asli, outlier, dan data tes.
-   - Batasan yang diakui sejak awal: fokus pada konteks dan data yang digunakan.
+   - Data yang tidak akan dimanipulasi: Menurut saya, semua data hasil penelitian baik yang mendukung maupun tidak mendukung hipotesis harus tetap ditampilkan.
+   - Batasan yang diakui sejak awal: Menurut saya, keterbatasan penelitian seperti hanya menggunakan studi literatur harus dijelaskan sejak awal.
 ```
 
 ---
@@ -85,22 +85,22 @@ Tanggal          : 12 April 2026
 Pilih satu paper riset di bidang TI yang mengklaim "metode X meningkatkan performa." Telusuri setiap tahap Research Trust Model.
 
 **Paper yang dipilih:**
-> Judul: Paradigma Kritis dalam Penelitian Sistem Informasi di Indonesia: Perlukah?
-> Penulis (Tahun): Darono, Agung (2013)
+> Judul: Analisis Perbandingan antara Teknologi Cloud Computing dan Infrastruktur Komputer Tradisional dalam Konteks Bisnis
+> Penulis (Tahun):Adi Prasetya dkk (2024)
 
 | Tahap | Apa yang Dilakukan | Potensi Distorsi |
 |-------|-------------------|-----------------|
-| Reality → Data | Kumpulkan studi tentang paradigma riset SI di Indonesia | Bisa hanya pilih studi yang cocok dengan argumen kritis |
-| Data → Processing | Mengklasifikasi argumen, tema, dan bukti dari berbagai jurnal sistem informasi | Proses seleksi literatur dapat menyingkirkan penelitian yang bertentangan atau relevansi konteks lokal |
-| Processing → Analysis | Bandingkan kelebihan dan kekurangan tiap paradigma | Penulis bisa menonjolkan bukti yang mendukung pandangannya |
-| Analysis → Inference | Simpulkan apakah paradigma kritis perlu diadopsi | Kesimpulan bisa terlalu kuat tanpa bukti luas |
-| Inference → Knowledge | Klaim paradigma kritis penting untuk riset SI Indonesia | Tidak semua topik SI cocok dengan klaim itu |
+| Reality → Data | Mengumpulkan data dari wawancara, survei, dan studi literatur | Data bisa tidak representatif karena hanya dari sumber tertentu |
+| Data → Processing | Menyeleksi literatur yang relevan | Bisa terjadi bias seleksi karena hanya memilih sumber yang mendukung |
+| Processing → Analysis | Menganalisis kelebihan dan kekurangan kedua teknologi | Analisis bisa subjektif karena tidak ada eksperimen langsung |
+| Analysis → Inference | Menarik kesimpulan bahwa cloud lebih fleksibel | Bisa terjadi generalisasi berlebihan |
+| Inference → Knowledge | Memberikan rekomendasi penggunaan teknologi | Kesimpulan terlalu umum dan tidak spesifik pada kondisi tertentu |
 
-**Distorsi paling besar di tahap:** Inference → Knowledge
+**Distorsi paling besar di tahap:** Data → Processing
 
 **Dua distorsi spesifik yang teridentifikasi:**
-1. Pilih literatur yang mendukung paradigma kritis saja.
-2. Tarik kesimpulan normatif tanpa bukti empiris cukup.
+1. Adanya bias dalam pemilihan literatur (cherry-picking).
+2. Kurangnya data empiris karena hanya menggunakan studi literatur.
 
 ---
 
@@ -110,27 +110,27 @@ Skenario: Seorang peneliti menemukan bahwa jika 3 data point outlier dihapus, ha
 
 | Perspektif | Analisis |
 |------------|---------|
-| Kejujuran ilmiah | Tulis hasil dengan dan tanpa outlier, lalu jelaskan alasan penghapusan. |
-| Transparansi | Jelaskan proses pembersihan data secara jelas. |
-| Peer review | Reviewer bisa menilai apakah penghapusan wajar atau hanya untuk memperbaiki angka. |
+| Kejujuran ilmiah | Data outlier tidak boleh langsung dihapus tanpa alasan yang jelas |
+| Transparansi | Peneliti harus menampilkan hasil dengan dan tanpa outlier. |
+| Peer review | Reviewer akan mempertanyakan jika data dihapus tanpa penjelasan |
 
 **Keputusan akhir dan justifikasi:**
-> Hapus outlier hanya jika jelas salah data atau ada alasan metode yang kuat. Jika tidak, laporkan kedua hasilnya.
+> Menurut saya, sebaiknya kedua hasil tetap ditampilkan, baik dengan outlier maupun tanpa outlier. Jika outlier dihapus, harus ada alasan yang kuat seperti kesalahan pengukuran. Jika tidak dijelaskan, maka termasuk manipulasi data dan melanggar etika penelitian.
 
 ---
 
 ## Latihan 3 — Posisi Paradigma
 
-**Topik riset:** Pengaruh Design Science Research pada kualitas artefak sistem informasi di Indonesia.
+**Topik riset:** Perbandingan cloud computing dan infrastruktur komputer tradisional dalam bisnis
 
 | Kriteria | Positivis | Interpretivis | Design Science |
 |----------|-----------|---------------|----------------|
-| Kesesuaian | 3 | 2 | 5 |
-| Jenis data | angka kinerja artefak | pengalaman perancang | artefak dan uji lapangan |
-| Limitasi | kurang lihat konteks sosial | sulit digeneralisasi | sulit nilai kontribusi secara baku |
+| Kesesuaian | 3 | 4 | 2 |
+| Jenis data | Berupa data sekunder dan hasil penelitian lain | berupa wawancara dan interpretasi | tidak ada artefak yang diuji |
+| Limitasi | tidak ada eksperimen langsung | cenderung subjektif | tidak relevan dengan penelitian ini |
 
-**Paradigma yang dipilih:** Design Science Research
-**Alasan:** Topiknya tentang bikin dan uji artefak. DSR paling pas, sementara positivis bisa dipakai untuk mengukur hasil.
+**Paradigma yang dipilih:** Interpretivis
+**Alasan:** Penelitian ini lebih fokus pada pemahaman dan interpretasi dari berbagai sumber literatur dibandingkan dengan eksperimen langsung atau pembangunan sistem baru.
 
 ---
 
@@ -138,6 +138,7 @@ Skenario: Seorang peneliti menemukan bahwa jika 3 data point outlier dihapus, ha
 
 > Sebelum membaca materi ini, apakah pernah mempertanyakan klaim "95% akurat"? Setelah memahami rantai distorsi, pertanyaan apa yang sekarang akan diajukan saat membaca paper?
 
-**Jawaban:**> Sebelum membaca materi ini, klaim "95% akurat" cenderung diterima begitu saja sebagai bukti bahwa metode tersebut memang unggul, tanpa mempertanyakan konteks atau proses di baliknya.
+**Jawaban:**> Menurut saya, sebelum mempelajari materi ini, saya cenderung langsung percaya dengan klaim seperti “akurasi 95%” tanpa mempertanyakan lebih dalam.
 >
-> Setelah memahami rantai distorsi dalam Research Trust Model, pertanyaan yang sekarang akan diajukan antara lain: Akurat pada dataset seperti apa dan seberapa representatif dataset itu terhadap kondisi nyata? Apakah ada data yang dibuang sebelum angka ini dihitung? Apakah hipotesis dirumuskan sebelum atau sesudah melihat data (HARKing)? Metrik apa yang digunakan dan apakah metrik itu benar-benar mengukur hal yang diklaim (construct validity)? Apakah hasil ini sudah direplikasi oleh peneliti independen?
+> Setelah memahami adanya tahapan distorsi dalam penelitian, menurut saya penting untuk lebih kritis. Sekarang saya akan mempertanyakan hal-hal seperti dataset yang digunakan, metode pengujian, kemungkinan bias, dan apakah hasilnya bisa digeneralisasi atau tidak.
+
