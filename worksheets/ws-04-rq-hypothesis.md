@@ -67,34 +67,34 @@ Jika rantai ini tidak lengkap, RQ belum mature. Bi-directional: RQ yang tidak bi
 ```
 RQ-CONTRIBUTION-HYPOTHESIS
 
-Gap Statement  : ____________________
+Gap Statement  : Method Gap + Context Gap: Belum ada integrated methodology yang menggabungkan technical metrics (response time, memory, storage) + pedagogical effectiveness (learning satisfaction, information retention) untuk mata kuliah praktik-heavy seperti Sistem Operasi di platform web vs mobile.
 
 Research Question:
-  Tipe         : [ ] Comparison  [ ] Improvement  [ ] Exploratory
-  Formulasi    : ____________________
-  Variabel IV  : ____________________
-  Variabel DV  : ____________________
-  Metrik       : ____________________
-  Dataset      : ____________________
-  Baseline     : ____________________
+  Tipe         : [✓] Comparison  [ ] Improvement  [ ] Exploratory
+  Formulasi    : Apakah platform web (Elena UNNES) menghasilkan kepuasan pengguna yang signifikan berbeda dengan platform mobile (YouTube + dedicated app) pada mata kuliah Sistem Operasi?
+  Variabel IV  : Jenis platform (Web vs Mobile)
+  Variabel DV  : Learning Satisfaction (UEQ), Ease of Use (SUS), Response Time (ms), Memory Usage (kB)
+  Metrik       : UEQ score (1-7 × 6 dimensi), SUS score (0-100), Response Time (ms), Memory Usage (kB)
+  Dataset      : 50 mahasiswa Sistem Informasi UNNES, mata kuliah Sistem Operasi
+  Baseline     : Elena UNNES (web, LMS-based) sebagai platform established
 
 Quality Check RQ:
-  [ ] Variabel spesifik
-  [ ] Metrik jelas
-  [ ] Baseline ada
-  [ ] Konteks disebutkan
-  [ ] Memerlukan eksperimen (bukan hanya survei literatur)
+  [✓] Variabel spesifik
+  [✓] Metrik jelas
+  [✓] Baseline ada
+  [✓] Konteks disebutkan
+  [✓] Memerlukan eksperimen (bukan hanya survei literatur)
 
 Contribution Statement:
-  Apa yang baru diketahui : ____________________
-  Jenis kontribusi        : [ ] Improvement  [ ] Comparison  [ ] Novel approach
-  Gap yang diisi          : ____________________
+  Apa yang baru diketahui : Integrated comparison technical + pedagogical metrics untuk mata kuliah praktik-heavy
+  Jenis kontribusi        : [✓] Comparison  [ ] Improvement  [ ] Novel approach
+  Gap yang diisi          : Method Gap + Context Gap: Belum ada integrated methodology untuk web vs mobile di pembelajaran praktik
 
 Hypothesis Pair:
-  H₀ : ____________________
-  H₁ : ____________________
-  Threshold              : ____________________
-  Justifikasi threshold  : ____________________
+  H₀ : Tidak ada perbedaan signifikan dalam kepuasan pengguna dan efektivitas pembelajaran antara platform web dan mobile
+  H₁ : Ada perbedaan signifikan dalam kepuasan pengguna dan efektivitas pembelajaran antara platform web dan mobile
+  Threshold              : α = 0.05; p-value < 0.05 maka H₀ ditolak
+  Justifikasi threshold  : α = 0.05 adalah standar dalam penelitian sosial dan teknologi pendidikan, memberikan confidence level 95%
 ```
 
 ---
@@ -103,24 +103,24 @@ Hypothesis Pair:
 
 Gunakan gap yang ditemukan di WS-03. Transformasikan menjadi Research Question.
 
-**Gap dari WS-03:** ____________________________________
+**Gap dari WS-03:** Method Gap + Context Gap: Belum ada integrated methodology yang menggabungkan technical metrics (response time, memory, storage) + pedagogical effectiveness (learning satisfaction, information retention) untuk mata kuliah praktik-heavy seperti Sistem Operasi di platform web vs mobile.
 
 **RQ versi pertama (tulis bebas):**
-> ___________________________________________________
+> Platform mana (web vs mobile) yang lebih efektif untuk pembelajaran Sistem Operasi jika diukur dari segi teknis dan pedagogis?
 
 **Evaluasi RQ:**
 
 | Komponen | Ada? | Isi |
 |----------|------|-----|
-| Metode spesifik | *Contoh: Ya — CNN vs RF* | |
-| Metrik terukur | | |
-| Baseline | | |
-| Dataset/konteks | | |
+| Metode spesifik | Ya | Web platform (Elena UNNES) vs Mobile applications (YouTube/dedicated app) |
+| Metrik terukur | Ya | Technical: response time, memory usage, storage; Pedagogical: learning satisfaction (UEQ score), perceived ease of learning |
+| Baseline | Ya | Elena UNNES (web, LMS-based) sebagai baseline platform yang sudah established |
+| Dataset/konteks | Ya | Mahasiswa Sistem Informasi, mata kuliah Sistem Operasi (praktik-heavy), institusi pendidikan |
 
-**Tipe RQ:** [ ] Comparison / [ ] Improvement / [ ] Exploratory
+**Tipe RQ:** [✓] Comparison / [ ] Improvement / [ ] Exploratory
 
 **RQ versi revisi (setelah evaluasi):**
-> ___________________________________________________
+> Apakah platform web (Elena UNNES) menghasilkan kepuasan pengguna dan efektivitas pembelajaran yang signifikan berbeda dengan platform mobile (YouTube + dedicated app) pada mata kuliah Sistem Operasi, ditinjau dari metrik teknis (response time, memory usage) dan metrik pedagogis (learning satisfaction, ease of use)?"
 
 ---
 
@@ -130,14 +130,14 @@ Rumuskan pasangan hipotesis dari RQ di Latihan 1.
 
 | Komponen | Isi |
 |----------|-----|
-| H₀ | *Contoh: Tidak ada perbedaan signifikan F1-Score antara CNN dan RF pada dataset CIC-MalMem-2022* |
-| H₁ | |
-| Metrik | |
-| Threshold | |
-| Justifikasi threshold | |
+| H₀ | Tidak ada perbedaan signifikan dalam kepuasan pengguna dan efektivitas pembelajaran antara platform web (Elena UNNES) dan platform mobile pada mata kuliah Sistem Operasi |
+| H₁ | Ada perbedaan signifikan dalam kepuasan pengguna dan efektivitas pembelajaran antara platform web dan mobile pada mata kuliah Sistem Operasi |
+| Metrik | Learning Satisfaction (UEQ score 1-7, 6 dimensi), Ease of Use (SUS score), Response Time (ms), Memory Usage (kB) |
+| Threshold | α = 0.05; p-value < 0.05 maka H₀ ditolak |
+| Justifikasi threshold | α = 0.05 adalah standar dalam penelitian sosial dan teknologi pendidikan, memberikan confidence level 95% |
 
-**Apakah hipotesis ini falsifiable?** [ ] Ya / [ ] Tidak
-> Bagaimana cara membuktikannya salah? ___________________
+**Apakah hipotesis ini falsifiable?** [✓] Ya / [ ] Tidak
+> Bagaimana cara membuktikannya salah? Dengan uji t-test: jika semua metrik menghasilkan p-value > 0.05, maka tidak ada bukti perbedaan signifikan dan H₀ tidak ditolak."
 
 ---
 
@@ -147,15 +147,15 @@ Lengkapi rantai dari RQ hingga metode analisis.
 
 | Tahap | Isi |
 |-------|-----|
-| RQ | *Contoh: Apakah CNN menghasilkan F1-Score lebih tinggi dari RF...* |
-| Variable (IV) | *Contoh: Jenis algoritma (CNN vs RF)* |
-| Variable (DV) | |
-| Metric | |
-| Data source | |
-| Analysis method | |
+| RQ | Apakah platform web (Elena) menghasilkan kepuasan pengguna yang signifikan berbeda dengan platform mobile (YouTube) pada mata kuliah Sistem Operasi? |
+| Variable (IV) | Jenis platform: Web (Elena UNNES) vs Mobile (YouTube + dedicated app) |
+| Variable (DV) | Learning Satisfaction (UEQ 6 dimensi), Ease of Use (SUS score), Technical metrics (response time, memory) |
+| Metric | UEQ score (skala 1-7 × 6 dimensi), SUS score (0-100), Response Time (ms), Memory Usage (kB) |
+| Data source | Survei kuesioner (50 mahasiswa), technical monitoring tool (Chrome DevTools untuk web, Android Profiler untuk mobile) |
+| Analysis method | Independent samples t-test (untuk metrik kontinu), thematic analysis untuk feedback kualitatif |
 
-**Apakah rantai lengkap?** [ ] Ya / [ ] Tidak
-> Jika tidak, tahap mana yang perlu direvisi? ______________
+**Apakah rantai lengkap?** [✓] Ya / [ ] Tidak
+> Jika tidak, tahap mana yang perlu direvisi? Rantai sudah lengkap dari RQ → IV/DV → Metrik → Data → Analysis
 
 ---
 
@@ -163,6 +163,17 @@ Lengkapi rantai dari RQ hingga metode analisis.
 
 > Ambil satu judul skripsi/paper yang pernah dibaca. Coba ekstrak RQ-nya. Apakah RQ tersebut memenuhi semua komponen (metode, metrik, baseline, konteks)? Jika tidak, apa yang hilang?
 
-**Judul:** _____________________________________________
-**RQ yang diekstrak:** __________________________________
-**Komponen yang hilang:** _______________________________
+## Refleksi
+
+> Ambil satu judul skripsi/paper yang pernah dibaca. Coba ekstrak RQ-nya. Apakah RQ tersebut memenuhi semua komponen (metode, metrik, baseline, konteks)? Jika tidak, apa yang hilang?
+
+**Judul:** Perbandingan Efisiensi Penggunaan E-Learning Berbasis Website dan Aplikasi Mobile dalam Proses Pembelajaran (Dalimunthe et al., 2025) — Paper 3
+
+**RQ yang diekstrak:** Apakah ada perbedaan signifikan dalam persepsi pengguna terhadap efisiensi platform e-learning antara website dan aplikasi mobile?
+
+**Komponen yang hilang:** 
+- **METODE SPESIFIK**: RQ terlalu general (\"e-learning\"), tidak menyebut platform konkret. Lebih baik seperti Paper 1: "Elena UNNES vs YouTube"
+- **BASELINE**: Tidak ada referensi ke performa diketahui atau best practice. Hanya "platform yang sering digunakan" (vague)
+- **METRIK JELAS**: Disebutkan "efisiensi" tapi tidak jelas: response time? satisfaction? learning outcome? Semua?
+- **Konteks sudah ada** (90 mahasiswa STMIK, tapi mata kuliah apa? kompetensi awal responden?)
+>> **Pelajaran utama**: RQ yang matang harus nama platform spesifik + metrik terukur konkret + baseline reference, bukan generic generic terms.
