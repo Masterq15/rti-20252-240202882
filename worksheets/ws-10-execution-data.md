@@ -70,22 +70,23 @@ EXECUTION PLAN
 
 | Run # | Skenario | Seed | Parameter | Status | Waktu | Output File |
 |-------|----------|------|-----------|--------|-------|-------------|
-| 1     |          |      |           |        |       |             |
-| 2     |          |      |           |        |       |             |
-| 3     |          |      |           |        |       |             |
-| ...   |          |      |           |        |       |             |
+| 1     | Lighthouse audit — Platform Web (Elena), Desktop | N/A | Throttling: 4G, kategori: Performance | Planned | ~5 menit | lighthouse_web_desktop_run1.json |
+| 2     | Lighthouse audit — Platform Web (Elena), Mobile emu | N/A | Throttling: 4G, device: mobile | Planned | ~5 menit | lighthouse_web_mobile_run1.json |
+| 3     | Lighthouse audit — Platform Mobile (app/mobile browser) | N/A | Throttling: 4G, device: mobile | Planned | ~5 menit | lighthouse_mobile_run1.json |
+| 4     | Kuesioner SUS+CSUQ — Kelompok Web (30 responden) | N/A | Google Forms shuffle aktif | Planned | 1 sesi | kuesioner_web.csv |
+| 5     | Kuesioner SUS+CSUQ — Kelompok Mobile (30 responden) | N/A | Google Forms shuffle aktif | Planned | 1 sesi | kuesioner_mobile.csv |
 
-Jumlah runs per skenario : ____
-Total runs               : ____
+Jumlah runs per skenario : 3 run Lighthouse per kondisi platform; 1 sesi kuesioner per kelompok
+Total runs               : 6 run Lighthouse + 2 sesi kuesioner (60+ responden total)
 
 DATA LOG (per run):
-  Run ID    : ____________________
-  Timestamp : ____________________
-  Skenario  : ____________________
-  Input     : ____________________
-  Output    : ____________________
-  Anomali   : ____________________
-  Catatan   : ____________________
+  Run ID    : lighthouse-web-desktop-run1
+  Timestamp : 2026-03-15T09:30:00
+  Skenario  : Platform Web (Elena UNNES), kondisi Desktop
+  Input     : URL Elena UNNES, throttling simulated 4G, Chrome 124.x
+  Output    : response_time=423ms, FCP=1840ms, TTI=2100ms, error_rate=2.1%
+  Anomali   : Tidak ada
+  Catatan   : Speedtest sebelum run: 15.2 Mbps download / 8.4 Mbps upload
 ```
 
 ---
@@ -96,15 +97,15 @@ Susun execution plan untuk eksperimen Anda. Tentukan skenario, jumlah run, dan s
 
 | Run # | Skenario | Seed | Parameter Kunci | Status |
 |-------|----------|------|----------------|--------|
-| *1* | *Contoh: BERT-base, DS-1* | *42* | *lr=2e-5, epoch=10* | *Planned* |
-| *2* | *BERT-base, DS-1* | *123* | *lr=2e-5, epoch=10* | *Planned* |
-| 3 | | | | |
-| 4 | | | | |
-| 5 | | | | |
+| 1 | Lighthouse audit — Platform Web (Elena UNNES), kondisi Desktop | N/A | Throttling: simulated 4G, kategori: Performance | Planned |
+| 2 | Lighthouse audit — Platform Web (Elena UNNES), kondisi Mobile | N/A | Throttling: simulated 4G, device: mobile emulation | Planned |
+| 3 | Lighthouse audit — Platform Mobile (versi mobile browser/app), kondisi Mobile | N/A | Throttling: simulated 4G, device: mobile emulation | Planned |
+| 4 | Kuesioner SUS + CSUQ — Kelompok Web (30 responden) | N/A | Google Forms, urutan item diacak, setelah 30 menit sesi | Planned |
+| 5 | Kuesioner SUS + CSUQ — Kelompok Mobile (30 responden) | N/A | Google Forms, urutan item diacak, setelah 30 menit sesi | Planned |
 
-**Total skenario:** ____
-**Run per skenario:** ____
-**Total run keseluruhan:** ____
+**Total skenario:** 2 (Performa Teknis + Kepuasan Pengguna)
+**Run per skenario:** 3 run Lighthouse per kondisi platform; 1 sesi kuesioner per kelompok
+**Total run keseluruhan:** 6 run Lighthouse + 2 sesi kuesioner (60+ responden total)
 
 ---
 
@@ -115,25 +116,29 @@ Desain format data log untuk eksperimen Anda. Tentukan field apa saja yang akan 
 **Identitas:**
 | Field | Contoh |
 |-------|--------|
-| Run ID | *run-001* |
-| Timestamp | *2025-03-15T10:30:00* |
-| | |
+| Run ID | lighthouse-web-desktop-run1 |
+| Timestamp | 2026-03-15T09:30:00 |
+| Platform | Web / Mobile |
+| Kondisi Perangkat | Desktop / Mobile Emulation |
 
 **Konfigurasi:**
 | Field | Contoh |
 |-------|--------|
-| Seed | *42* |
-| Code version | *commit abc1234* |
-| | |
+| Jaringan (Speedtest) | 15.2 Mbps download / 8.4 Mbps upload |
+| Lighthouse throttling | Simulated 4G |
+| Versi Chrome | 124.0.6367.82 |
+| URL yang diuji | https://elena.unnes.ac.id/course/... |
 
 **Hasil:**
 | Metrik | Tipe Data | Range Valid |
 |--------|----------|-------------|
-| *Contoh: Accuracy* | *float* | *0.0 – 1.0* |
-| | | |
-| | | |
+| Response Time (ms) | float | 0 – 10000 ms |
+| Loading Speed / FCP (ms) | float | 0 – 10000 ms |
+| Error Rate (%) | float | 0.0 – 100.0 |
+| SUS Score | float | 0 – 100 |
+| CSUQ Score (total + 3 subdimensi) | float | 1.0 – 7.0 |
 
-**Format output:** [ ] CSV / [ ] JSON / [ ] Database / [ ] Lainnya: ____
+**Format output:** [✓] CSV / [ ] JSON / [ ] Database / [ ] Lainnya: ____
 
 ---
 
@@ -143,10 +148,10 @@ Rencanakan bagaimana menangani anomali. Untuk setiap jenis, tentukan langkah yan
 
 | Jenis Anomali | Contoh | Tindakan |
 |---------------|--------|----------|
-| Run gagal (crash) | *Contoh: OOM pada batch_size=64* | *Contoh: Dokumentasi, re-run batch_size=32, catat perubahan* |
-| Hasil ekstrem | | |
-| Waktu eksekusi anomali | | |
-| Inkonsistensi dengan run lain | | |
+| Run gagal (crash) | Lighthouse error / halaman tidak bisa diakses saat audit | Dokumentasi penyebab (server down? jaringan putus?), tunggu 15 menit, re-run dengan kondisi yang sama. Catat di log. |
+| Hasil ekstrem | Response time 8000ms padahal run lain ~400ms | Cek kondisi jaringan saat itu via speedtest, cek apakah server Elena sedang down atau maintenance. Re-run setelah kondisi stabil. Jangan hapus data, tandai sebagai suspect. |
+| Waktu eksekusi anomali | Lighthouse audit selesai dalam 5 detik (terlalu cepat) | Kemungkinan hasil dari cache. Hard refresh dulu (Ctrl+Shift+R), bersihkan cache browser, re-run. |
+| Inkonsistensi dengan run lain | SUS score responden = 0 atau 100 (terlalu ekstrem) | Follow-up dengan responden, cek apakah salah paham instruksi. Kalau tidak bisa diklarifikasi, tandai sebagai outlier dan laporkan di validasi data. |
 
 **Prinsip:** Detect → Investigate → Document → Decide
 
@@ -157,6 +162,7 @@ Rencanakan bagaimana menangani anomali. Untuk setiap jenis, tentukan langkah yan
 > Pernahkah Anda melaporkan hasil riset/tugas dari single run? Apa risikonya? Bagaimana multiple run mengubah kepercayaan terhadap hasil?
 
 **Pengalaman sebelumnya:**
-> ___________________________________________________
+> Pernah, waktu tugas praktikum jaringan saya cuma tes ping sekali terus langsung tulis hasilnya di laporan. Ternyata pas dicek ulang hasilnya berbeda karena kondisi jaringan kampus lagi ramai.
+
 **Yang akan dilakukan berbeda:**
-> ___________________________________________________
+> Sekarang saya akan selalu ambil minimal 3 run untuk data teknis dan hitung rata-ratanya. Untuk kuesioner, saya akan cek distribusi responsnya dulu sebelum langsung analisis supaya tahu ada outlier atau tidak sebelum terlambat.
