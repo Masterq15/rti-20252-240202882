@@ -84,6 +84,10 @@ Tanggal          : 12 April 2026
 
 Pilih satu paper riset di bidang TI yang mengklaim "metode X meningkatkan performa." Telusuri setiap tahap Research Trust Model.
 
+> **Panduan pencarian paper:** Gunakan [IEEE Xplore](https://ieeexplore.ieee.org), [ACM Digital Library](https://dl.acm.org), atau Google Scholar. Pilih paper **tahun 2020 ke atas**, di topik yang Anda minati: deteksi anomali, klasifikasi citra, NLP, keamanan siber, IoT, dsb.
+>
+> **Contoh domain TI:** "Deteksi anomali lalu-lintas jaringan menggunakan CNN — akurasi meningkat 94% vs baseline SVM 87%." Distorsi potensial: apakah dataset normal/anomali seimbang? Apakah hanya diuji pada satu vendor traffic?
+
 **Paper yang dipilih:**
 > Judul: Analisis Perbandingan antara Teknologi Cloud Computing dan Infrastruktur Komputer Tradisional dalam Konteks Bisnis
 > Penulis (Tahun):Adi Prasetya dkk (2024)
@@ -122,6 +126,8 @@ Skenario: Seorang peneliti menemukan bahwa jika 3 data point outlier dihapus, ha
 ## Latihan 3 — Posisi Paradigma
 
 **Topik riset:** Perbandingan cloud computing dan infrastruktur komputer tradisional dalam bisnis
+
+> **Skala 1–5:** 1 = tidak sesuai sama sekali dengan topik ini, 5 = sangat sesuai dan dominan digunakan pada riset bertopik serupa.
 
 | Kriteria | Positivis | Interpretivis | Design Science |
 |----------|-----------|---------------|----------------|
