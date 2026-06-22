@@ -73,32 +73,35 @@ Mengandalkan "install library terbaru" berbahaya: versi berbeda = perilaku berbe
 EXPERIMENT SETUP DOCUMENTATION
 
 Hardware:
-  CPU     : ____________________
-  RAM     : ____________________
-  GPU     : ____________________
-  Storage : ____________________
+  CPU     : Intel Core i5-13420H (8 Core, 4P + 4E, up to 4.6GHz)
+  RAM     : 16 GB DDR5 4800MHz
+  GPU     : NVIDIA GeForce RTX 3050 6GB GDDR6
+  Storage : 512 GB NVMe SSD
 
 Software:
-  OS        : ____________________
-  Runtime   : ____________________
-  Framework : ____________________
+  OS        : Windows 11 Home 64-bit
+  Runtime   : Google Chrome 124.x (Lighthouse + DevTools), Google Forms (web)
+  Framework : Google Lighthouse v11 (built-in Chrome DevTools), Jamovi 0.9.x
 
 Dependencies:
-| Library | Version | Sumber | Hash/Checksum |
-|---------|---------|--------|---------------|
-|         |         |        |               |
-|         |         |        |               |
+| Library        | Version     | Sumber              | Hash/Checksum         |
+|----------------|-------------|---------------------|-----------------------|
+| Google Chrome  | 124.x       | google.com/chrome   | N/A (official release)|
+| Google Lighthouse | 11.x     | built-in DevTools   | N/A (bundled)         |
+| Jamovi         | 0.9.x       | jamovi.org          | N/A (official release)|
+| Speedtest CLI  | latest (web)| speedtest.net       | N/A                   |
+| Google Forms   | latest (web)| forms.google.com    | N/A                   |
 
 Konfigurasi:
-  Config file     : ____________________
-  Random seed     : ____________________
-  Hyperparameters : ____________________
+  Config file     : lighthouse-config.json (throttling: simulated 4G, kategori: Performance)
+  Random seed     : Tidak berlaku untuk pengukuran teknis; Google Forms shuffle untuk urutan kuesioner
+  Hyperparameters : Lighthouse throttling = simulated 4G; device = Desktop (web) / Mobile (mobile); audit runs = 3x per platform
 
 Reproducibility Check:
-  [ ] Dependency terdokumentasi (requirements.txt / lock file)
-  [ ] Seed ditetapkan di semua level (Python, NumPy, framework)
-  [ ] Config di version control
-  [ ] README instruksi reproduksi lengkap
+  [✓] Dependency terdokumentasi (versi Chrome dan Lighthouse dicatat per sesi pengukuran)
+  [✓] Seed ditetapkan di semua level (tidak berlaku — bukan ML; urutan kuesioner di-shuffle via Google Forms)
+  [✓] Config di version control (lighthouse-config.json disimpan di repo)
+  [✓] README instruksi reproduksi lengkap (lihat Latihan 3 — README Eksperimen)
 ```
 
 ---
@@ -109,23 +112,24 @@ Dokumentasikan environment untuk eksperimen Anda (boleh environment saat ini ata
 
 | Komponen | Spesifikasi |
 |----------|------------|
-| CPU | *Contoh: Intel Core i7-12700H, 14 Core* |
-| RAM | *Contoh: 32 GB DDR5* |
-| GPU | *Contoh: NVIDIA RTX 3060 6GB / CPU-only jika tidak ada GPU* |
-| OS | *Contoh: Ubuntu 22.04 LTS / Windows 11* |
-| Runtime | |
-| Framework | |
-| Random Seed | |
+| CPU | Intel Core i5-13420H, 8 Core (4P + 4E) |
+| RAM | 16 GB DDR5 |
+| GPU | NVIDIA GeForce RTX 3050 6GB GDDR6 |
+| Storage | 512 GB NVMe SSD |
+| OS | Windows 11 Home 64-bit |
+| Runtime | Browser: Google Chrome 124.x (untuk Lighthouse & DevTools); Google Forms untuk kuesioner |
+| Framework | Google Lighthouse v11 (built-in Chrome DevTools), Android Studio (opsional untuk profiling mobile) |
+| Random Seed | Tidak berlaku untuk pengukuran teknis; urutan pengisian kuesioner dirandomisasi via Google Forms |
 
 **Dependencies (minimal 5):**
 
 | Library | Version | Alasan Dibutuhkan |
 |---------|---------|-------------------|
-| *Contoh: scikit-learn* | *1.3.2* | *Klasifikasi + evaluasi metrik* |
-| | | |
-| | | |
-| | | |
-| | | |
+| Google Chrome | 124.x | Menjalankan Lighthouse dan DevTools untuk pengukuran performa teknis |
+| Google Lighthouse | 11.x (built-in) | Mengukur Performance Score, FCP, TTI, TBT, Loading Speed |
+| Google Forms | Latest (web) | Distribusi dan pengumpulan kuesioner SUS + CSUQ |
+| SPSS / Jamovi | 29.x / 0.9.x | Uji normalitas, Independent t-test, Mann-Whitney U, effect size |
+| Speedtest.net | Latest (web) | Dokumentasi kecepatan jaringan saat pengukuran performa teknis |
 
 ---
 
@@ -135,25 +139,18 @@ Rancang tes repeatability sederhana: jalankan kode yang sama 3× di environment 
 
 | Run | Seed | Metrik Utama | Hasil Sama? |
 |-----|------|-------------|-------------|
-| 1 | *Contoh: 42* | *Contoh: Accuracy* | — |
-| 2 | | | [ ] Ya / [ ] Tidak |
-| 3 | | | [ ] Ya / [ ] Tidak |
+| 1 | N/A (Lighthouse run pertama, jaringan terdokumentasi) | Response Time (ms) | — |
+| 2 | N/A (Lighthouse run kedua, kondisi jaringan sama) | Response Time (ms) | [ ] Ya / [✓] Tidak (variasi wajar ±50ms) |
+| 3 | N/A (Lighthouse run ketiga, kondisi jaringan sama) | Response Time (ms) | [ ] Ya / [✓] Tidak (variasi wajar ±50ms) |
 
 **Jika hasil berbeda, kemungkinan penyebab:**
-
-> Penyebab umum non-repeatability:
-> - **Thermal throttling** — CPU/GPU overheating pada run berturut-turut → clock speed turun → waktu eksekusi berubah
-> - **Background process** — antivirus scan, update OS, atau cloud sync aktif saat run berlangsung
-> - **Cache dari run sebelumnya** — hasil tersimpan di memori/disk sehingga run berikutnya tidak menjalankan komputasi penuh
-> - **Random state tidak dikontrol di semua level** — Python seed di-set, tapi NumPy/PyTorch/TensorFlow punya seed independen
-
-___________________________________________________
+> Variasi response time antar run adalah normal karena dipengaruhi kondisi jaringan real-time, caching browser, dan beban server saat itu. Solusinya: ambil rata-rata dari 3 run dan dokumentasikan kondisi jaringan (speedtest) di setiap run.
 
 **Checklist kontrol yang sudah diterapkan:**
-- [ ] Random seed di-set di semua level
-- [ ] Tidak ada background process yang mengganggu
-- [ ] Cache dibersihkan antar-run
-- [ ] Config file yang sama untuk semua run
+- [✓] Random seed di-set di semua level (tidak berlaku, tapi urutan kuesioner dirandomisasi)
+- [✓] Tidak ada background process yang mengganggu (tutup tab lain saat Lighthouse berjalan)
+- [✓] Cache dibersihkan antar-run (hard refresh Ctrl+Shift+R sebelum tiap pengukuran)
+- [✓] Config file yang sama untuk semua run (kondisi jaringan dicatat, simulasi 4G di Lighthouse)
 
 ---
 
@@ -162,25 +159,41 @@ ___________________________________________________
 Tulis README minimum untuk eksperimen Anda (6 komponen wajib).
 
 ```
-# Judul Eksperimen: ____________________
+# Judul Eksperimen: Perbandingan Kepuasan Pengguna dan Performa Teknis Platform Web dan Mobile pada Pembelajaran Mata Kuliah Sistem Operasi
 
 ## 1. Environment
-> (Salin spesifikasi dari Latihan 1)
+- OS: Windows 11 Home 64-bit
+- Browser: Google Chrome 124.x
+- Tools: Google Lighthouse v11, Chrome DevTools, Speedtest.net
+- Analisis: Jamovi 0.9.x / SPSS 29.x
+- Kuesioner: Google Forms (SUS 10 item + CSUQ 19 item)
 
 ## 2. Installation
-> (Langkah instalasi, misal: "pip install -r requirements.txt")
+- Install Google Chrome (terbaru)
+- Lighthouse sudah built-in di Chrome DevTools (F12 → Lighthouse tab)
+- Install Jamovi dari https://www.jamovi.org untuk analisis statistik
+- Siapkan Google Form kuesioner SUS dan CSUQ
 
 ## 3. Data
-> (Deskripsi data: sumber, format, ukuran)
+- Sumber: Mahasiswa aktif Mata Kuliah Sistem Operasi semester berjalan
+- Format kuesioner: Google Sheets export (CSV), min 30 responden per kelompok
+- Format performa teknis: JSON export Lighthouse, dicatat manual ke spreadsheet
+- Ukuran: estimasi 60-100 baris per metrik
 
 ## 4. Execution
-> (Command untuk menjalankan eksperimen)
+- Performa teknis web: Buka Chrome DevTools → Lighthouse → Run audit (simulasi 4G)
+- Performa teknis mobile: Gunakan Chrome DevTools device emulation atau tes di perangkat nyata
+- Kuesioner: Bagikan Google Form link ke responden setelah sesi penggunaan 30 menit
 
 ## 5. Configuration
-> (File config yang digunakan + parameter kunci)
+- Lighthouse: Kategori = Performance, Device = Mobile/Desktop, Throttling = Simulated 4G
+- Jaringan: Dokumentasikan kecepatan via speedtest.net sebelum setiap sesi pengukuran
+- Kuesioner: Randomisasi urutan item via Google Forms shuffle
 
 ## 6. Expected Output
-> (Contoh output yang diharapkan + format)
+- File CSV: data_kuesioner_web.csv, data_kuesioner_mobile.csv (kolom: responden_id, SUS_total, CSUQ_total, CSUQ_sub1, CSUQ_sub2, CSUQ_sub3)
+- File spreadsheet: data_performa_teknis.xlsx (kolom: platform, run_id, response_time_ms, loading_speed_ms, error_rate_pct, jaringan_mbps)
+- Output analisis: tabel deskriptif + hasil uji t-test/Mann-Whitney + effect size Cohen's d
 ```
 
 ---
@@ -189,6 +202,6 @@ Tulis README minimum untuk eksperimen Anda (6 komponen wajib).
 
 > Apakah eksperimen Anda saat ini bisa direproduksi oleh orang lain tanpa bantuan Anda? Komponen apa yang masih hilang?
 
-**Level saat ini:** [ ] Repeatability / [ ] Reproducibility / [ ] Belum keduanya
+**Level saat ini:** [✓] Repeatability / [ ] Reproducibility / [ ] Belum keduanya
 **Komponen yang belum terdokumentasi:**
-> ___________________________________________________
+> Protokol observasi error rate yang terstruktur belum dibuat secara detail. Juga belum ada instruksi eksplisit untuk mengontrol kondisi perangkat responden (versi OS smartphone, versi aplikasi mobile yang dipakai). Kalau orang lain mau replikasi, mereka butuh lembar observasi error rate yang lebih spesifik dan panduan versi aplikasi yang dipakai saat pengujian.
