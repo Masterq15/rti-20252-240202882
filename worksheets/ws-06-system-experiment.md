@@ -80,29 +80,30 @@ Jika variabel tidak bisa di-map ke komponen apapun → arsitektur perlu didesain
 ```
 SYSTEM-EXPERIMENT MAPPING
 
-Research Question: Apakah platform web (Elena UNNES) menghasilkan kepuasan pengguna yang signifikan berbeda dengan platform mobile pada mata kuliah Sistem Operasi?
+Research Question: Apakah terdapat perbedaan signifikan antara platform web (Elena UNNES) dan platform mobile dalam hal kepuasan pengguna dan performa teknis pada pembelajaran Mata Kuliah Sistem Operasi?
 
 Variable → Component Mapping:
 | Variabel | Tipe | Komponen Sistem | Cara Manipulasi/Pengukuran |
 |----------|------|-----------------|---------------------------|
-| Platform Type (Web vs Mobile) | IV | Elena UNNES (LMS web) vs YouTube app + mobile app | User choice observasi (quasi-experimental design) |
-| Learning Satisfaction (UEQ) | DV | UI/UX, content delivery, interactivity features | Questionnaire post-usage 4 minggu |
-| Ease of Use (SUS) | DV | Navigation, menu organization, accessibility | Questionnaire integrated atau external survey |
-| Response Time | DV | Server backend, network infrastructure, client rendering | Automated monitoring Chrome DevTools / Android Profiler |
-| Memory Usage | DV | Application runtime, caching, resource allocation | Memory profiling tools during typical 1-hour session |
-| Learning Context | CV | Sistem Operasi, praktik-heavy course | Tetap konsisten untuk semua responden |
-| Semester | CV | Semester genap, tahun akademik sama | Tetap konsisten untuk semua responden |
+| Platform (Web vs Mobile) | IV | Elena UNNES (LMS web via browser) vs Aplikasi mobile/mobile browser | Between-subject design: kelompok web dan mobile terpisah |
+| Kepuasan Pengguna — SUS | DV | UI/UX, navigasi, aksesibilitas platform | Kuesioner SUS 10 item post-usage via Google Forms |
+| Kepuasan Pengguna — CSUQ | DV | System quality, info quality, interface quality | Kuesioner CSUQ 19 item post-usage via Google Forms |
+| Response Time | DV | Server backend, network, client rendering | Google Lighthouse + Chrome DevTools Network tab |
+| Loading Speed (FCP/TTI) | DV | Server response, resource loading, rendering | Google Lighthouse Performance audit (simulated 4G) |
+| Error Rate | DV | Platform reliability, server stability | Log sistem + observasi sesi terstruktur (lembar observasi) |
+| Mata Kuliah | CV | Sistem Operasi — konten dan tugas identik | Tetap konsisten untuk semua responden |
+| Semester | CV | Semester berjalan, tahun akademik sama | Tetap konsisten untuk semua responden |
 
 4 Prinsip Desain:
   [✓] Traceability — Setiap komponen bisa ditelusuri ke variabel
-  [✓] Variable Isolation — IV bisa diubah tanpa mengubah CV
-  [✓] Measurement Integration — Pengukuran DV built-in
-  [✓] Reproducibility — Setup bisa direkonstruksi
+  [✓] Variable Isolation — IV (platform) bisa diubah tanpa mengubah CV (mata kuliah, semester)
+  [✓] Measurement Integration — Semua DV punya instrumen pengukuran yang jelas
+  [✓] Reproducibility — Setup bisa direkonstruksi dari dokumentasi
 
 Experimental Setup:
-  Input data     : User demographics, course materials, baseline platform usage
-  Parameter      : Platform assignment (observational), survey timing, profiling duration
-  Output format  : CSV questionnaire responses, JSON performance logs, statistical analysis reports
+  Input data     : Demografi responden, platform yang digunakan, frekuensi penggunaan sebelumnya
+  Parameter      : Platform assignment (between-subject), waktu sesi minimal 30 menit, 3 run Lighthouse per platform
+  Output format  : CSV kuesioner (Google Sheets export), JSON Lighthouse report, spreadsheet performa teknis
 ```
 
 ---
@@ -111,17 +112,18 @@ Experimental Setup:
 
 Gunakan RQ dan variabel dari WS-05. Petakan ke komponen sistem.
 
-**RQ:** Apakah platform web (Elena UNNES) menghasilkan kepuasan pengguna yang signifikan berbeda dengan platform mobile pada mata kuliah Sistem Operasi?
+**RQ:** Apakah terdapat perbedaan signifikan antara platform web (Elena UNNES) dan platform mobile dalam hal kepuasan pengguna dan performa teknis pada pembelajaran Mata Kuliah Sistem Operasi?
 
 | Variabel | Tipe | Komponen Sistem | Cara Manipulasi / Pengukuran |
 |----------|------|-----------------|---------------------------|
-| Platform Type (Web vs Mobile) | IV | Elena UNNES (LMS web) vs YouTube app + mobile app | User choice observasi (quasi-experimental design) |
-| Learning Satisfaction (UEQ) | DV | UI/UX, content delivery, interactivity features | Questionnaire post-usage 4 minggu |
-| Ease of Use (SUS) | DV | Navigation, menu organization, accessibility | Questionnaire integrated atau external survey |
-| Response Time | DV | Server backend, network infrastructure, client rendering | Automated monitoring Chrome DevTools / Android Profiler |
-| Memory Usage | DV | Application runtime, caching, resource allocation | Memory profiling tools during typical 1-hour session |
-| Learning Context | CV | Sistem Operasi, praktik-heavy course | Tetap konsisten untuk semua responden |
-| Semester | CV | Semester genap, tahun akademik sama | Tetap konsisten untuk semua responden |
+| Platform (Web vs Mobile) | IV | Elena UNNES (LMS web via browser) vs Aplikasi mobile/mobile browser | Between-subject: kelompok web dan mobile terpisah |
+| Kepuasan Pengguna — SUS | DV | UI/UX, navigasi, aksesibilitas platform | Kuesioner SUS 10 item post-usage via Google Forms |
+| Kepuasan Pengguna — CSUQ | DV | System quality, info quality, interface quality | Kuesioner CSUQ 19 item post-usage via Google Forms |
+| Response Time | DV | Server backend, network, client rendering | Google Lighthouse + Chrome DevTools |
+| Loading Speed (FCP/TTI) | DV | Server response, resource loading, rendering | Google Lighthouse Performance audit (simulated 4G) |
+| Error Rate | DV | Platform reliability, server stability | Log sistem + lembar observasi terstruktur |
+| Mata Kuliah | CV | Sistem Operasi — konten dan tugas identik | Tetap konsisten untuk semua responden |
+| Semester | CV | Semester berjalan, tahun akademik sama | Tetap konsisten untuk semua responden |
 
 **Apakah semua variabel bisa di-map?** [✓] Ya / [ ] Tidak
 > Jika tidak, komponen apa yang perlu ditambahkan? Semua variabel ter-map dengan jelas
@@ -132,10 +134,10 @@ Gunakan RQ dan variabel dari WS-05. Petakan ke komponen sistem.
 
 Evaluasi desain sistem terhadap 4 prinsip.
 
-| Traceability | ✓ | Setiap komponen (Elena, YouTube) mapped ke IV; DV metrics clearly defined |
-| Modularity | ✓ | Platforms independent, metrics independent, bisa analyzed separately |
-| Controllability | ⚠ | User choice uncontrollable, tapi semester/context tetap terkontrol |
-| Measurability | ✓ | Semua DV measurable: UEQ (1-7), SUS (0-100), response time (ms), memory (kB) |
+| Traceability | ✓ | Setiap komponen (Elena web, mobile app) mapped ke IV; semua DV punya instrumen pengukuran yang jelas |
+| Modularity | ✓ | Platform independent, metrik independent, bisa dianalisis secara terpisah |
+| Controllability | ⚠ | Platform choice tidak bisa sepenuhnya dikontrol (between-subject observasional), tapi mata kuliah dan semester tetap terkontrol |
+| Measurability | ✓ | Semua DV measurable: SUS (0–100), CSUQ (1–7), response time (ms), loading speed (ms), error rate (%) |
 
 **Prinsip mana yang paling sulit dipenuhi?** Controllability (user choice)
 **Strategi untuk mengatasinya:**
