@@ -67,16 +67,16 @@ Jika rantai ini tidak lengkap, RQ belum mature. Bi-directional: RQ yang tidak bi
 ```
 RQ-CONTRIBUTION-HYPOTHESIS
 
-Gap Statement  : Method Gap + Context Gap: Belum ada integrated methodology yang menggabungkan technical metrics (response time, memory, storage) + pedagogical effectiveness (learning satisfaction, information retention) untuk mata kuliah praktik-heavy seperti Sistem Operasi di platform web vs mobile.
+Gap Statement  : Method Gap + Context Gap: Belum ada studi yang mengintegrasikan pengukuran kepuasan pengguna (SUS, CSUQ) + performa teknis (response time, loading speed, error rate) secara bersamaan untuk platform web vs mobile pada pembelajaran Mata Kuliah Sistem Operasi.
 
 Research Question:
   Tipe         : [✓] Comparison  [ ] Improvement  [ ] Exploratory
-  Formulasi    : Apakah platform web (Elena UNNES) menghasilkan kepuasan pengguna yang signifikan berbeda dengan platform mobile (YouTube + dedicated app) pada mata kuliah Sistem Operasi?
-  Variabel IV  : Jenis platform (Web vs Mobile)
-  Variabel DV  : Learning Satisfaction (UEQ), Ease of Use (SUS), Response Time (ms), Memory Usage (kB)
-  Metrik       : UEQ score (1-7 × 6 dimensi), SUS score (0-100), Response Time (ms), Memory Usage (kB)
-  Dataset      : 50 mahasiswa Sistem Informasi UNNES, mata kuliah Sistem Operasi
-  Baseline     : Elena UNNES (web, LMS-based) sebagai platform established
+  Formulasi    : Apakah terdapat perbedaan signifikan antara platform web (Elena UNNES) dan platform mobile dalam hal kepuasan pengguna dan performa teknis pada pembelajaran Mata Kuliah Sistem Operasi?
+  Variabel IV  : Jenis platform (Web/Elena UNNES vs Mobile/aplikasi mobile)
+  Variabel DV  : Kepuasan Pengguna (SUS score, CSUQ score), Performa Teknis (response time ms, loading speed ms, error rate %)
+  Metrik       : SUS score (0–100), CSUQ score (1–7, 3 subdimensi), Response Time (ms), Loading Speed/FCP (ms), Error Rate (%)
+  Dataset      : Minimal 30 mahasiswa per kelompok (60 total), Mata Kuliah Sistem Operasi semester berjalan
+  Baseline     : Elena UNNES (web, LMS-based) sebagai platform yang sudah established dan aktif digunakan
 
 Quality Check RQ:
   [✓] Variabel spesifik
@@ -130,11 +130,11 @@ Rumuskan pasangan hipotesis dari RQ di Latihan 1.
 
 | Komponen | Isi |
 |----------|-----|
-| H₀ | Tidak ada perbedaan signifikan dalam kepuasan pengguna dan efektivitas pembelajaran antara platform web (Elena UNNES) dan platform mobile pada mata kuliah Sistem Operasi |
-| H₁ | Ada perbedaan signifikan dalam kepuasan pengguna dan efektivitas pembelajaran antara platform web dan mobile pada mata kuliah Sistem Operasi |
-| Metrik | Learning Satisfaction (UEQ score 1-7, 6 dimensi), Ease of Use (SUS score), Response Time (ms), Memory Usage (kB) |
+| H₀ | Tidak ada perbedaan signifikan antara kepuasan pengguna dan performa teknis platform web (Elena UNNES) dan platform mobile pada pembelajaran Mata Kuliah Sistem Operasi |
+| H₁ | Ada perbedaan signifikan pada salah satu atau lebih dimensi kepuasan pengguna dan/atau performa teknis antara platform web dan mobile |
+| Metrik | Kepuasan: SUS score (0–100), CSUQ score (1–7, 3 subdimensi); Performa teknis: Response Time (ms), Loading Speed (ms), Error Rate (%) |
 | Threshold | α = 0.05; p-value < 0.05 maka H₀ ditolak |
-| Justifikasi threshold | α = 0.05 adalah standar dalam penelitian sosial dan teknologi pendidikan, memberikan confidence level 95% |
+| Justifikasi threshold | α = 0.05 adalah standar dalam penelitian sosial dan teknologi pendidikan, memberikan confidence level 95% — konsisten dengan Dalimunthe dkk. (2025) |
 
 **Apakah hipotesis ini falsifiable?** [✓] Ya / [ ] Tidak
 > Bagaimana cara membuktikannya salah? Dengan uji t-test: jika semua metrik menghasilkan p-value > 0.05, maka tidak ada bukti perbedaan signifikan dan H₀ tidak ditolak."
@@ -147,12 +147,12 @@ Lengkapi rantai dari RQ hingga metode analisis.
 
 | Tahap | Isi |
 |-------|-----|
-| RQ | Apakah platform web (Elena) menghasilkan kepuasan pengguna yang signifikan berbeda dengan platform mobile (YouTube) pada mata kuliah Sistem Operasi? |
-| Variable (IV) | Jenis platform: Web (Elena UNNES) vs Mobile (YouTube + dedicated app) |
-| Variable (DV) | Learning Satisfaction (UEQ 6 dimensi), Ease of Use (SUS score), Technical metrics (response time, memory) |
-| Metric | UEQ score (skala 1-7 × 6 dimensi), SUS score (0-100), Response Time (ms), Memory Usage (kB) |
-| Data source | Survei kuesioner (50 mahasiswa), technical monitoring tool (Chrome DevTools untuk web, Android Profiler untuk mobile) |
-| Analysis method | Independent samples t-test (untuk metrik kontinu), thematic analysis untuk feedback kualitatif |
+| RQ | Apakah terdapat perbedaan signifikan antara platform web (Elena UNNES) dan platform mobile dalam hal kepuasan pengguna dan performa teknis pada pembelajaran Mata Kuliah Sistem Operasi? |
+| Variable (IV) | Jenis platform: Web (Elena UNNES via browser) vs Mobile (aplikasi mobile/mobile browser) |
+| Variable (DV) | Kepuasan Pengguna: SUS score (0–100), CSUQ score (1–7, 3 subdimensi); Performa Teknis: Response Time (ms), Loading Speed (ms), Error Rate (%) |
+| Metric | SUS (0–100), CSUQ (1–7), Response Time (ms), Loading Speed/FCP (ms), Error Rate (%) |
+| Data source | Kuesioner SUS+CSUQ via Google Forms (60+ mahasiswa), pengukuran teknis via Google Lighthouse + Chrome DevTools |
+| Analysis method | Shapiro-Wilk → Independent Samples t-test (normal) atau Mann-Whitney U (tidak normal) + Cohen's d |
 
 **Apakah rantai lengkap?** [✓] Ya / [ ] Tidak
 > Jika tidak, tahap mana yang perlu direvisi? Rantai sudah lengkap dari RQ → IV/DV → Metrik → Data → Analysis
