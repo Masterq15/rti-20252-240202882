@@ -60,22 +60,22 @@ Curious → Critical → Systematic
 Nama Peneliti    : Risky Dimas Nugroho
 Tanggal          : 12 April 2026
 
-1. Ketika membaca klaim "metode X 95% akurat":
-   - Pertanyaan pertama saya: Menurut saya, yang pertama harus dipertanyakan adalah dataset apa yang digunakan dan apakah data tersebut seimbang atau tidak.
-   - Data yang dibutuhkan untuk verifikasi: Menurut saya, dibutuhkan dataset asli, metode evaluasi, confusion matrix, serta perbandingan dengan metode lain.
+1. Ketika membaca klaim "platform X lebih memuaskan pengguna":
+   - Pertanyaan pertama saya: Instrumen apa yang dipakai untuk mengukur kepuasan? Berapa responden dan apakah sampelnya representatif?
+   - Data yang dibutuhkan untuk verifikasi: Kuesioner asli (SUS/CSUQ/UEQ), jumlah responden, karakteristik sampel, hasil uji statistik, dan apakah ada pengukuran performa teknis yang mendukung klaim tersebut.
 
 2. Posisi paradigma:
-   - Pendekatan: [ ] Positivis  [✓] Interpretivis  [ ] Design Science  [ ] Mixed
-   - Alasan: Menurut saya, pendekatan yang digunakan lebih ke interpretivis karena penelitian ini banyak menggunakan studi literatur dan interpretasi terhadap data yang sudah ada.
+   - Pendekatan: [✓] Positivis  [ ] Interpretivis  [ ] Design Science  [ ] Mixed
+   - Alasan: Penelitian ini menggunakan pendekatan positivis karena mengukur kepuasan pengguna dan performa teknis secara objektif dan kuantitatif. Ada hipotesis yang bisa diuji (H0/Ha), metrik terukur (SUS score, response time), dan uji statistik yang hasilnya bisa diverifikasi oleh peneliti lain.
 
 3. Identifikasi distorsi:
-   - Asumsi tersembunyi: Menurut saya, ada asumsi bahwa cloud computing selalu lebih baik dibanding infrastruktur tradisional.
-   - Sumber bias potensial: Menurut saya, bias bisa muncul dari pemilihan literatur yang hanya mendukung keunggulan cloud computing.
-   - Langkah mitigasi: Menurut saya, perlu menggunakan sumber yang beragam dan juga menyertakan data empiris atau eksperimen langsung.
+   - Asumsi tersembunyi: Ada asumsi bahwa mahasiswa menggunakan kedua platform dengan intensitas yang sama, padahal bisa jadi kelompok web lebih sering pakai Elena karena diwajibkan dosen.
+   - Sumber bias potensial: Bias bisa muncul dari self-selection — mahasiswa yang memilih mobile mungkin lebih tech-savvy dan cenderung menilai lebih positif terhadap teknologi baru.
+   - Langkah mitigasi: Catat frekuensi penggunaan sebelumnya sebagai variabel kontrol, gunakan stratified sampling, dan kontrol secara statistik menggunakan ANCOVA jika diperlukan.
 
 4. Komitmen etika:
-   - Data yang tidak akan dimanipulasi: Menurut saya, semua data hasil penelitian baik yang mendukung maupun tidak mendukung hipotesis harus tetap ditampilkan.
-   - Batasan yang diakui sejak awal: Menurut saya, keterbatasan penelitian seperti hanya menggunakan studi literatur harus dijelaskan sejak awal.
+   - Data yang tidak akan dimanipulasi: Semua hasil uji statistik dilaporkan apa adanya, termasuk jika p-value > 0.05 (H0 tidak ditolak). Tidak akan memilih metrik setelah melihat data (p-hacking).
+   - Batasan yang diakui sejak awal: Penelitian terbatas pada satu institusi (UNNES) dan satu mata kuliah (Sistem Operasi), sehingga generalisasi ke konteks lain memerlukan replikasi.
 ```
 
 ---
@@ -84,27 +84,23 @@ Tanggal          : 12 April 2026
 
 Pilih satu paper riset di bidang TI yang mengklaim "metode X meningkatkan performa." Telusuri setiap tahap Research Trust Model.
 
-> **Panduan pencarian paper:** Gunakan [IEEE Xplore](https://ieeexplore.ieee.org), [ACM Digital Library](https://dl.acm.org), atau Google Scholar. Pilih paper **tahun 2020 ke atas**, di topik yang Anda minati: deteksi anomali, klasifikasi citra, NLP, keamanan siber, IoT, dsb.
->
-> **Contoh domain TI:** "Deteksi anomali lalu-lintas jaringan menggunakan CNN — akurasi meningkat 94% vs baseline SVM 87%." Distorsi potensial: apakah dataset normal/anomali seimbang? Apakah hanya diuji pada satu vendor traffic?
-
 **Paper yang dipilih:**
-> Judul: Analisis Perbandingan antara Teknologi Cloud Computing dan Infrastruktur Komputer Tradisional dalam Konteks Bisnis
-> Penulis (Tahun):Adi Prasetya dkk (2024)
+> Judul: Analisis Perbandingan Efisiensi Penggunaan E-Learning Berbasis Website dan Aplikasi Mobile dalam Proses Pembelajaran
+> Penulis (Tahun): Dalimunthe dkk. (2025)
 
 | Tahap | Apa yang Dilakukan | Potensi Distorsi |
 |-------|-------------------|-----------------|
-| Reality → Data | Mengumpulkan data dari wawancara, survei, dan studi literatur | Data bisa tidak representatif karena hanya dari sumber tertentu |
-| Data → Processing | Menyeleksi literatur yang relevan | Bisa terjadi bias seleksi karena hanya memilih sumber yang mendukung |
-| Processing → Analysis | Menganalisis kelebihan dan kekurangan kedua teknologi | Analisis bisa subjektif karena tidak ada eksperimen langsung |
-| Analysis → Inference | Menarik kesimpulan bahwa cloud lebih fleksibel | Bisa terjadi generalisasi berlebihan |
-| Inference → Knowledge | Memberikan rekomendasi penggunaan teknologi | Kesimpulan terlalu umum dan tidak spesifik pada kondisi tertentu |
+| Reality → Data | Mengumpulkan data persepsi dari 90 mahasiswa via survei kuesioner | Sampel dari 1 institusi saja — bisa tidak representatif untuk konteks lain |
+| Data → Processing | Menseleksi 9 indikator persepsi untuk dibandingkan antar platform | Indikator dipilih peneliti — bisa ada bias dalam pemilihan dimensi yang diukur |
+| Processing → Analysis | Uji Independent Samples t-test pada 9 indikator | Tidak ada pengukuran performa teknis objektif, hanya persepsi subyektif |
+| Analysis → Inference | Menyimpulkan tidak ada perbedaan signifikan (Sig > 0.05) | Kesimpulan "setara" bisa misleading jika power test rendah (sampel kecil) |
+| Inference → Knowledge | Memberikan rekomendasi pemilihan platform berdasarkan efisiensi | Rekomendasi terlalu luas karena tidak terikat konteks mata kuliah spesifik |
 
 **Distorsi paling besar di tahap:** Data → Processing
 
 **Dua distorsi spesifik yang teridentifikasi:**
-1. Adanya bias dalam pemilihan literatur (cherry-picking).
-2. Kurangnya data empiris karena hanya menggunakan studi literatur.
+1. Tidak ada pengukuran performa teknis objektif — hanya persepsi pengguna yang diukur, sehingga klaim "efisiensi" tidak didukung data teknis.
+2. Konteks mata kuliah tidak spesifik — hasil tidak bisa digeneralisasi ke mata kuliah praktik-heavy seperti Sistem Operasi.
 
 ---
 
@@ -115,28 +111,26 @@ Skenario: Seorang peneliti menemukan bahwa jika 3 data point outlier dihapus, ha
 | Perspektif | Analisis |
 |------------|---------|
 | Kejujuran ilmiah | Data outlier tidak boleh langsung dihapus tanpa alasan yang jelas |
-| Transparansi | Peneliti harus menampilkan hasil dengan dan tanpa outlier. |
+| Transparansi | Peneliti harus menampilkan hasil dengan dan tanpa outlier |
 | Peer review | Reviewer akan mempertanyakan jika data dihapus tanpa penjelasan |
 
 **Keputusan akhir dan justifikasi:**
-> Menurut saya, sebaiknya kedua hasil tetap ditampilkan, baik dengan outlier maupun tanpa outlier. Jika outlier dihapus, harus ada alasan yang kuat seperti kesalahan pengukuran. Jika tidak dijelaskan, maka termasuk manipulasi data dan melanggar etika penelitian.
+> Kedua hasil harus tetap ditampilkan, baik dengan outlier maupun tanpa outlier. Jika outlier dihapus, harus ada alasan yang kuat seperti kesalahan pengukuran atau kondisi jaringan anomali yang terdokumentasi. Di penelitian saya sendiri, outlier response time yang disebabkan jaringan < 1Mbps di-exclude tapi tetap dilaporkan dengan alasan yang jelas.
 
 ---
 
 ## Latihan 3 — Posisi Paradigma
 
-**Topik riset:** Perbandingan cloud computing dan infrastruktur komputer tradisional dalam bisnis
-
-> **Skala 1–5:** 1 = tidak sesuai sama sekali dengan topik ini, 5 = sangat sesuai dan dominan digunakan pada riset bertopik serupa.
+**Topik riset:** Perbandingan platform web dan mobile untuk pembelajaran Mata Kuliah Sistem Operasi
 
 | Kriteria | Positivis | Interpretivis | Design Science |
 |----------|-----------|---------------|----------------|
-| Kesesuaian | 3 | 4 | 2 |
-| Jenis data | Berupa data sekunder dan hasil penelitian lain | berupa wawancara dan interpretasi | tidak ada artefak yang diuji |
-| Limitasi | tidak ada eksperimen langsung | cenderung subjektif | tidak relevan dengan penelitian ini |
+| Kesesuaian | 5 | 2 | 1 |
+| Jenis data | Data kuantitatif terukur: SUS score, CSUQ score, response time, loading speed, error rate | Interpretasi pengalaman pengguna secara kualitatif | Tidak ada artefak baru yang dibangun |
+| Limitasi | Tidak bisa menangkap nuansa pengalaman subjektif secara mendalam | Sulit diverifikasi dan direplikasi, terlalu subjektif | Tidak relevan — penelitian tidak membangun sistem baru |
 
-**Paradigma yang dipilih:** Interpretivis
-**Alasan:** Penelitian ini lebih fokus pada pemahaman dan interpretasi dari berbagai sumber literatur dibandingkan dengan eksperimen langsung atau pembangunan sistem baru.
+**Paradigma yang dipilih:** Positivis
+**Alasan:** Penelitian ini mengukur kepuasan pengguna dan performa teknis secara kuantitatif dengan instrumen tervalidasi (SUS, CSUQ, Lighthouse). Ada hipotesis yang bisa diuji secara statistik, metrik yang terdefinisi numerik, dan prosedur yang bisa direplikasi. Ini sesuai ciri paradigma positivis: objektif, terukur, dan dapat diverifikasi.
 
 ---
 
@@ -144,7 +138,7 @@ Skenario: Seorang peneliti menemukan bahwa jika 3 data point outlier dihapus, ha
 
 > Sebelum membaca materi ini, apakah pernah mempertanyakan klaim "95% akurat"? Setelah memahami rantai distorsi, pertanyaan apa yang sekarang akan diajukan saat membaca paper?
 
-**Jawaban:**> Menurut saya, sebelum mempelajari materi ini, saya cenderung langsung percaya dengan klaim seperti “akurasi 95%” tanpa mempertanyakan lebih dalam.
+**Jawaban:**
+> Sebelum mempelajari materi ini, saya cenderung langsung percaya klaim seperti "platform X lebih memuaskan pengguna" tanpa cek lebih lanjut.
 >
-> Setelah memahami adanya tahapan distorsi dalam penelitian, menurut saya penting untuk lebih kritis. Sekarang saya akan mempertanyakan hal-hal seperti dataset yang digunakan, metode pengujian, kemungkinan bias, dan apakah hasilnya bisa digeneralisasi atau tidak.
-
+> Setelah memahami rantai distorsi, sekarang saya akan tanya: instrumen apa yang dipakai? Berapa sampelnya? Apakah hanya mengukur persepsi atau ada data teknis juga? Apakah konteksnya spesifik atau terlalu general? Ini persis gap yang saya isi di penelitian sendiri — paper sebelumnya tidak mengintegrasikan kepuasan dan performa teknis sekaligus.
