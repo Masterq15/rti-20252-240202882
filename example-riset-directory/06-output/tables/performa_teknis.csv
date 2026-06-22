@@ -1,0 +1,3 @@
+Platform,Response_Time_Mean_ms,Response_Time_SD,Loading_Speed_FCP_Mean_ms,Loading_Speed_SD,Error_Rate_Mean_pct,Error_Rate_SD,n_runs
+Web (Elena UNNES),423,54,1840,210,2.1,1.3,3
+Mobile,387,71,1520,185,3.4,1.8,3

@@ -1,0 +1,3 @@
+Metrik,t_statistic,Degrees_of_Freedom,p_value_approx,Cohens_d
+SUS Score,0.827,78,> 0.05 (tidak signifikan),0.185
+CSUQ Score,1.027,78,> 0.05 (tidak signifikan),0.23

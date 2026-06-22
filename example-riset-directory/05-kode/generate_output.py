@@ -130,7 +130,7 @@ fig2, ax2 = plt.subplots(figsize=(8, 6))
 bp = ax2.boxplot(
     [web_sus, mobile_sus],
     patch_artist=True,
-    labels=['Web (Elena)', 'Mobile']
+    tick_labels=['Web (Elena)', 'Mobile']
 )
 colors = ['#4C72B0', '#DD8452']
 for patch, color in zip(bp['boxes'], colors):
