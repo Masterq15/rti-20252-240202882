@@ -67,23 +67,23 @@ Masalah riset yang layak harus memenuhi 5 kriteria:
 PROBLEM STATEMENT BUILDER
 
 Domain & Konteks
-  Domain   : Teknologi Informasi (Cloud Computing)
-  Konteks  : Penggunaan infrastruktur IT dalam bisnis antara cloud computing dan infrastruktur tradisional
+  Domain   : Teknologi Informasi (E-Learning)
+  Konteks  : Penggunaan platform e-learning dalam pembelajaran Mata Kuliah Sistem Operasi antara platform berbasis web dan aplikasi mobile
 
 System Context
-  Input       : Data kebutuhan bisnis, permintaan layanan IT, dan resource komputasi
-  Process     : Pengolahan data menggunakan sistem cloud atau infrastruktur tradisional
-  Output      : Layanan IT yang berjalan (aplikasi, penyimpanan, dll)
-  Outcome     : Efisiensi operasional dan pertumbuhan bisnis
-  Constraints : Koneksi internet, biaya, keamanan data
-  Stakeholders: Perusahaan, pengguna, penyedia layanan cloud
+  Input       : Mahasiswa aktif Mata Kuliah Sistem Operasi, materi perkuliahan, aksi pengguna di platform
+  Process     : Penggunaan platform web (Elena UNNES via browser) atau platform mobile (aplikasi mobile/mobile browser) untuk mengakses materi dan berinteraksi
+  Output      : Sesi pembelajaran yang berjalan (akses materi, kuis, diskusi)
+  Outcome     : Kepuasan pengguna dan efektivitas pembelajaran mahasiswa
+  Constraints : Koneksi internet, jenis perangkat yang digunakan, ketersediaan fitur platform
+  Stakeholders: Mahasiswa, dosen pengampu, pengelola program studi, pengembang platform
 
 Fenomena → Problem
-  Fenomena yang diamati             : Banyak perusahaan mulai beralih ke cloud computing
-  Gejala (symptom) yang terukur     : Adanya peningkatan penggunaan cloud karena fleksibilitas dan skalabilitas
-  Masalah yang didiagnosis          : Belum jelas perbandingan efektivitas cloud dan infrastruktur tradisional secara spesifik
-  Masalah riset (researchable)      : Belum ada analisis yang terukur mengenai perbandingan manfaat dan dampak kedua teknologi dalam konteks bisnis
-  Variabel yang terukur             : fleksibilitas, biaya, keamanan data, dan efisiensi operasional
+  Fenomena yang diamati             : Mahasiswa Mata Kuliah Sistem Operasi menggunakan platform web (Elena) dan mobile (YouTube/app) secara bersamaan
+  Gejala (symptom) yang terukur     : Belum ada data yang menunjukkan platform mana yang lebih efektif dan memuaskan untuk konteks ini
+  Masalah yang didiagnosis          : Ketiadaan data empiris terintegrasi yang membandingkan kepuasan pengguna dan performa teknis kedua jenis platform
+  Masalah riset (researchable)      : Belum diketahui apakah terdapat perbedaan signifikan antara platform web dan mobile dalam hal kepuasan pengguna dan performa teknis pada pembelajaran Sistem Operasi
+  Variabel yang terukur             : Kepuasan pengguna (SUS score, CSUQ score), performa teknis (response time, loading speed, error rate)
 
 Problem Quality Check
   [✓] Clarity — Apakah satu orang membaca akan paham?
@@ -93,7 +93,7 @@ Problem Quality Check
   [✓] Impact — Apakah ada kontribusi jika terjawab?
 
 Problem Statement (1 paragraf):
- Dalam konteks bisnis modern, banyak perusahaan dihadapkan pada pilihan antara cloud computing dan infrastruktur komputer tradisional, namun belum ada analisis yang benar-benar jelas dan terukur mengenai perbandingan manfaat, efisiensi, dan dampak dari kedua teknologi tersebut. Hal ini menyebabkan kesulitan dalam menentukan teknologi yang paling sesuai dengan kebutuhan bisnis. Oleh karena itu, diperlukan penelitian yang dapat mengukur dan membandingkan aspek seperti fleksibilitas, biaya, keamanan data, dan efisiensi operasional agar dapat memberikan dasar pengambilan keputusan yang lebih tepat.
+  Mahasiswa Mata Kuliah Sistem Operasi saat ini menggunakan dua jenis platform e-learning secara bersamaan — platform berbasis web yang diakses melalui browser dan aplikasi mobile — namun belum tersedia data empiris yang membandingkan keduanya secara objektif dari sisi kepuasan pengguna maupun performa teknis. Ketiadaan data ini menyulitkan pengelola akademik dan pengembang platform dalam mengambil keputusan berbasis bukti mengenai platform mana yang lebih efektif untuk konteks pembelajaran ini.
 ```
 
 ---
@@ -102,18 +102,18 @@ Problem Statement (1 paragraf):
 
 Pilih satu topik di bidang TI yang diminati. Transformasikan melalui 5 tahap Problem Formation Model.
 
-**Topik awal:** Perbandingan cloud computing dan infrastruktur tradisional
+**Topik awal:** Perbandingan platform web dan mobile untuk pembelajaran Mata Kuliah Sistem Operasi
 
 | Tahap | Hasil |
 |-------|-------|
-| Reality | Perusahaan menggunakan sistem IT untuk operasional bisnis |
-| Observed Issue (Symptom) | banyak perusahaan beralih ke cloud computing |
-| Diagnosed Problem (Root Cause) | belum ada perbandingan yang jelas dan terukur antara kedua teknologi |
-| Researchable Problem | belum diketahui secara pasti dampak penggunaan cloud dibandingkan infrastruktur tradisional dalam bisnis |
-| Measurable Variable | biaya, fleksibilitas, keamanan, dan efisiensi |
+| Reality | Mahasiswa Sistem Operasi menggunakan platform e-learning untuk belajar |
+| Observed Issue (Symptom) | Mahasiswa menggunakan dua jenis platform (web dan mobile) secara bersamaan tanpa tahu mana yang lebih efektif |
+| Diagnosed Problem (Root Cause) | Belum ada data empiris yang membandingkan kepuasan pengguna dan performa teknis kedua platform secara terintegrasi |
+| Researchable Problem | Belum diketahui apakah ada perbedaan signifikan antara platform web dan mobile dari sisi kepuasan pengguna dan performa teknis pada Mata Kuliah Sistem Operasi |
+| Measurable Variable | Kepuasan pengguna (SUS score, CSUQ score), performa teknis (response time ms, loading speed ms, error rate %) |
 
 **Apakah terjebak solution-first thinking?** [ ] Ya / [✓] Tidak
-> tidak, karena fokusnya masih pada masalah, bukan langsung ke solusi.
+> Tidak, karena fokusnya pada mengidentifikasi apakah ada perbedaan, bukan langsung merekomendasikan satu platform tertentu.
 
 ---
 
@@ -123,15 +123,15 @@ Gambarkan konteks sistem dari masalah riset di Latihan 1.
 
 | Komponen | Deskripsi |
 |----------|----------|
-| Input | Data bisnis dan kebutuhan sistem IT |
-| Process | Pengolahan menggunakan cloud atau sistem tradisional |
-| Output | layanan IT seperti aplikasi dan penyimpanan |
-| Outcome | Efisiensi dan peningkatan kinerja bisnis |
-| Constraints | Biaya, keamanan, dan koneksi internet |
-| Stakeholders | Perusahaan, pengguna, dan penyedia layanan |
+| Input | Mahasiswa aktif Mata Kuliah Sistem Operasi, materi kuliah, aksi pengguna di platform |
+| Process | Penggunaan platform web (Elena UNNES via browser) atau platform mobile (aplikasi/mobile browser) untuk mengakses materi dan berinteraksi |
+| Output | Sesi pembelajaran yang berjalan: akses materi, kuis, diskusi |
+| Outcome | Kepuasan pengguna dan efektivitas pembelajaran mahasiswa |
+| Constraints | Koneksi internet, jenis perangkat, ketersediaan fitur platform, familiar-tidaknya mahasiswa dengan platform |
+| Stakeholders | Mahasiswa, dosen pengampu, pengelola program studi, pengembang platform Elena |
 
-**Komponen mana yang paling relevan dengan masalah riset?** 
-Process dan Outcome, karena berkaitan langsung dengan perbandingan kinerja kedua teknologi.
+**Komponen mana yang paling relevan dengan masalah riset?**
+Process dan Outcome, karena berkaitan langsung dengan perbandingan pengalaman menggunakan kedua platform dan dampaknya terhadap kepuasan pengguna.
 ---
 
 ## Latihan 3 — Problem Quality Check
@@ -140,16 +140,16 @@ Evaluasi problem statement yang sudah dibuat menggunakan 5 kriteria.
 
 | Kriteria | Skor (1-5) | Justifikasi |
 |----------|-----------|-------------|
-| Clarity | 4| Sudah cukup jelas tapi masih bisa dipersempit |
-| Measurability |4 | Bisa diukur dengan beberapa variabel |
-| Relevance | 5 | Sangat penting di bidang IT |
-| Testability | 4| Bisa diuji dengan data |
-| Impact | 5 | Hasilnya bisa membantu perusahaan |
+| Clarity | 5 | Problem statement jelas menyebut siapa (mahasiswa Sistem Operasi), apa (belum ada data perbandingan kepuasan + performa teknis), dan dampaknya (kesulitan pengambilan keputusan institusi) |
+| Measurability | 5 | Metrik terukur eksplisit: SUS score (0-100), CSUQ score (1-7), response time (ms), loading speed (ms), error rate (%) |
+| Relevance | 5 | Sangat relevan — e-learning adalah topik aktif di riset TI pendidikan, dan perbandingan web vs mobile belum terintegrasi |
+| Testability | 5 | Bisa gagal: jika p-value > 0.05 pada semua metrik, berarti tidak ada perbedaan signifikan dan H0 tidak ditolak |
+| Impact | 5 | Hasilnya langsung bisa jadi rekomendasi berbasis data untuk pengelola akademik dalam memilih platform |
 
-**Skor total:** 22 / 25
+**Skor total:** 25 / 25
 
 **Problem statement versi final (1 paragraf):**
-> perusahaan saat ini dihadapkan pada pilihan antara cloud computing dan infrastruktur tradisional, namun belum ada perbandingan yang jelas dan terukur mengenai efektivitas keduanya dalam mendukung bisnis. Oleh karena itu, penelitian diperlukan untuk membandingkan aspek biaya, fleksibilitas, keamanan, dan efisiensi agar dapat membantu pengambilan keputusan yang lebih tepat.
+> Mahasiswa Mata Kuliah Sistem Operasi saat ini menggunakan platform e-learning berbasis web (Elena UNNES) dan aplikasi mobile secara bersamaan, namun belum tersedia data empiris yang membandingkan keduanya secara objektif dari sisi kepuasan pengguna maupun performa teknis. Ketiadaan data ini menyulitkan pengelola akademik dalam memilih dan mengoptimalkan platform yang paling sesuai untuk konteks pembelajaran ini. Oleh karena itu, diperlukan penelitian yang mengukur dan membandingkan kepuasan pengguna (SUS, CSUQ) dan performa teknis (response time, loading speed, error rate) dari kedua platform secara terintegrasi.
 
 ---
 
@@ -158,6 +158,6 @@ Evaluasi problem statement yang sudah dibuat menggunakan 5 kriteria.
 > Bandingkan "masalah" yang biasa ditemui saat coding (bug, error) dengan masalah riset. Apa perbedaan fundamental dalam cara mendefinisikan dan mendekati keduanya?
 
 **Jawaban:**
-> Masalah saat coding biasanya langsung terlihat seperti error atau bug dan fokusnya untuk diperbaiki.
-
->Sedangkan masalah riset lebih ke mencari penyebab dan membuktikan sesuatu, jadi harus lebih terstruktur dan tidak langsung ke solusi.
+> Masalah saat coding biasanya langsung terlihat — ada error, ada output yang salah, dan solusinya adalah debug dan fix. Fokusnya ke "ini rusak, perbaiki."
+>
+> Masalah riset berbeda: tidak ada yang "rusak", tapi ada yang "belum diketahui." Di penelitian ini, platform web dan mobile keduanya berfungsi, tapi belum diketahui mana yang lebih memuaskan dan lebih optimal secara teknis. Cara mendefinisikan masalah riset harus lebih ketat: harus ada gap yang terdokumentasi dari literatur, metrik yang terukur, dan hipotesis yang bisa salah.
