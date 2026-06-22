@@ -66,15 +66,16 @@ Metrik harus ditentukan **sebelum** eksperimen. Memilih metrik setelah melihat d
 ```
 VARIABLE & METRIC DEFINITION
 
-Research Question: Apakah platform web (Elena UNNES) menghasilkan kepuasan pengguna yang signifikan berbeda dengan platform mobile (YouTube + dedicated app) pada mata kuliah Sistem Operasi?
+Research Question: Apakah terdapat perbedaan signifikan antara platform web dan mobile dalam hal kepuasan pengguna dan performa teknis pada pembelajaran Mata Kuliah Sistem Operasi?
 
 | Variabel | Tipe | Konsep | Metrik | Skala | Satuan | Cara Mengukur | Justifikasi |
 |----------|------|--------|--------|-------|--------|---------------|-------------|
-| Platform/Jenis Media | IV | Pendekatan penyampaian pembelajaran | Categorical: Web (Elena) vs Mobile (YouTube) | Nominal | - | Survey response pada baseline selection | Berdasarkan penggunaan aktual mahasiswa (Paper 1) |
-| Learning Satisfaction | DV | Kepuasan pengguna terhadap pengalaman belajar | UEQ score (6 dimensi) | Interval | 1-7 | Kuesioner UEQ post-usage | Standard tool untuk UX measurement (Papers 1,5) |
-| Ease of Use | DV | Kemudahan dalam menggunakan platform | SUS score | Interval | 0-100 | Kuesioner SUS post-usage | Validated usability scale (Paper 1) |
-| Response Time | DV | Kecepatan sistem merespons tindakan pengguna | Waktu loading halaman/API | Ratio | ms | Chrome DevTools Network tab | Technical metric untuk performance (Paper 4) |
-| Memory Usage | DV | Efisiensi penggunaan memory system | Ukuran memory runtime | Ratio | kB | Android Studio Profiler / Chrome DevTools | Critical untuk mobile platform limitation (Paper 4) |
+| Platform (Web/Mobile) | IV | Jenis platform e-learning yang digunakan | Categorical: Web (Elena UNNES) vs Mobile (aplikasi mobile) | Nominal | - | Penugasan atau observasi pilihan platform mahasiswa | Berdasarkan penggunaan aktual mahasiswa (Alfita 2024) |
+| Kepuasan Pengguna — SUS | DV | Tingkat usability dan kepuasan keseluruhan platform | SUS score (10 item) | Interval | 0–100 | Kuesioner SUS post-usage | Instrumen tervalidasi luas untuk usability, interpretasi standar (>68 = above average) |
+| Kepuasan Pengguna — CSUQ | DV | Kepuasan multidimensi: system quality, info quality, interface quality | CSUQ score (19 item, 3 subdimensi) | Interval | 1–7 | Kuesioner CSUQ post-usage | Lebih terperinci dari SUS, cocok untuk konteks e-learning (Dalimunthe 2025) |
+| Response Time | DV | Kecepatan platform merespons aksi pengguna | Waktu respons halaman/konten | Ratio | ms | Google Lighthouse / Chrome DevTools | Technical metric langsung terkait perceived performance (Ridho 2018) |
+| Loading Speed | DV | Kecepatan total konten dimuat hingga bisa diakses | First Contentful Paint / Time to Interactive | Ratio | ms | Google Lighthouse Performance Score | Indikator performa teknis utama yang mempengaruhi user experience |
+| Error Rate | DV | Persentase aksi yang menghasilkan kegagalan sistem | Jumlah error / total aksi × 100 | Ratio | % | Log sistem + observasi sesi terstruktur | Indikator reliabilitas platform selama penggunaan |
 
 Alignment Check:
   RQ → Concept → Variable → Metric → Data → Result
@@ -89,18 +90,19 @@ Alignment Check:
 
 Gunakan RQ dari WS-04. Definisikan variabel dan metriknya.
 
-**RQ:** Apakah platform web (Elena UNNES) menghasilkan kepuasan pengguna yang signifikan berbeda dengan platform mobile (YouTube + dedicated app) pada mata kuliah Sistem Operasi?
+**RQ:** Apakah terdapat perbedaan signifikan antara platform web dan mobile dalam hal kepuasan pengguna dan performa teknis pada pembelajaran Mata Kuliah Sistem Operasi?
 
 | Variabel | Tipe | Konsep Abstrak | Metrik Konkret | Skala (NOIR) | Satuan |
 |----------|------|---------------|----------------|-------------|--------|
-| Platform/Jenis Media | IV | Pendekatan penyampaian pembelajaran | Categorical: Web (Elena) vs Mobile (YouTube) | Nominal | - |
-| Learning Satisfaction | DV | Kepuasan pengguna terhadap pengalaman belajar | UEQ score (Attractiveness, Perspicuity, Efficiency, Dependability, Stimulation, Novelty) | Interval | 1-7 skala |
-| Ease of Use | DV | Kemudahan dalam menggunakan platform | SUS (System Usability Scale) score | Interval | 0-100 |
-| Response Time | DV (Technical) | Kecepatan sistem merespons tindakan pengguna | Waktu loading halaman / API response | Ratio | milliseconds (ms) |
-| Memory Usage | DV (Technical) | Efisiensi penggunaan memory system | Ukuran memory yang dikonsumsi saat runtime | Ratio | kilobytes (kB) |
+| Platform (Web/Mobile) | IV | Jenis platform e-learning yang digunakan | Categorical: Web (Elena UNNES) vs Mobile (aplikasi mobile) | Nominal | - |
+| Kepuasan Pengguna — SUS | DV | Tingkat usability dan kepuasan keseluruhan | SUS score (10 item) | Interval | 0–100 |
+| Kepuasan Pengguna — CSUQ | DV | Kepuasan multidimensi: system quality, info quality, interface quality | CSUQ score (19 item, 3 subdimensi) | Interval | 1–7 |
+| Response Time | DV (Technical) | Kecepatan platform merespons aksi pengguna | Waktu respons halaman/konten | Ratio | ms |
+| Loading Speed | DV (Technical) | Kecepatan total konten dimuat hingga bisa diakses | First Contentful Paint (FCP) / Time to Interactive (TTI) | Ratio | ms |
+| Error Rate | DV (Technical) | Persentase aksi yang menghasilkan kegagalan sistem | Jumlah error / total aksi x 100 | Ratio | % |
 
 **Apakah ada lompatan logis dalam rantai?** [ ] Ya / [✓] Tidak
-> Jika ya, di mana? Rantai logis: Learning Satisfaction adalah dampak langsung dari pengalaman pengguna → diukur via UEQ yang valid. Technical metrics adalah karakteristik platform yang mempengaruhi satisfaction."
+> Rantai logis: Kepuasan pengguna adalah outcome dari pengalaman menggunakan platform → diukur via SUS (overall) dan CSUQ (per dimensi) yang keduanya tervalidasi. Performa teknis adalah karakteristik objektif platform → diukur via Lighthouse dan DevTools yang reproducible.
 
 ---
 
@@ -110,15 +112,15 @@ Evaluasi metrik DV yang dipilih di Latihan 1 menggunakan 3 kriteria.
 
 | Kriteria | Skor (1-5) | Justifikasi |
 |----------|-----------|-------------|
-| Representative | 5 | UEQ adalah instrumen standar untuk user experience evaluation, mencakup 6 dimensi komprehensif. Sudah terbukti valid di e-learning (Paper 5) |
-| Sensitive | 4 | UEQ menggunakan skala 1-7 cukup granular. Technical metrics sangat sensitif terhadap perbedaan platform. Kemungkinan ceiling effect minimal |
-| Feasible | 5 | Kuesioner online efisien. Technical metrics via Chrome DevTools (web) dan Android Profiler (mobile) tanpa cost |
+| Representative | 5 | SUS dan CSUQ adalah instrumen standar tervalidasi untuk usability dan kepuasan sistem. Lighthouse adalah tool resmi Google untuk performa teknis. Semua metrik mewakili konsep yang diteliti dengan baik |
+| Sensitive | 5 | SUS skala 0–100 dan CSUQ skala 1–7 cukup granular. Response time dan loading speed dalam ms sangat sensitif mendeteksi perbedaan performa. Ceiling effect minimal |
+| Feasible | 5 | Kuesioner via Google Forms mudah didistribusikan. Lighthouse dan DevTools gratis dan built-in di Chrome. Tidak butuh infrastruktur tambahan |
 
 **Apakah perlu secondary metric?** [✓] Ya / [ ] Tidak
-> Jika ya, apa dan mengapa? Learning Outcome (score praktikum) sebagai secondary metric untuk memvalidasi apakah kepuasan berkorelasi dengan pencapaian pembelajaran aktual
+> Performance Score dari Lighthouse (0–100) sebagai secondary metric untuk memberikan gambaran performa keseluruhan platform secara agregat, selain metrik individual response time dan loading speed.
 
 **Contoh kasus ceiling effect untuk metrik ini:**
-> Jika Elena UNNES sudah sangat familiar bagi mahasiswa, skor satisfaction bisa tinggi bahkan meski ada improvement → perlu perbandingan dengan platform baru untuk mendeteksi perbedaan"
+> Jika mahasiswa sudah sangat terbiasa dengan Elena UNNES (misal semester 4 ke atas), SUS score bisa tinggi bukan karena platformnya bagus tapi karena habituation. Ini sebabnya frekuensi penggunaan sebelumnya dicatat sebagai variabel kontrol.
 
 ---
 
