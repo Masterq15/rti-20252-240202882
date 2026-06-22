@@ -81,42 +81,72 @@ Detail: [../09-docs/tahap-5-penulisan-manuskrip.md](../09-docs/tahap-5-penulisan
 
 ## 4. Hasil Penelitian
 
-*(Belum tersedia — akan diisi setelah pengumpulan dan analisis data selesai)*
+Data dikumpulkan dari 80 mahasiswa aktif Mata Kuliah Sistem Operasi (40 kelompok web, 40 kelompok mobile). Setelah proses cleaning diperoleh 55 responden valid (28 web, 27 mobile) karena beberapa responden tidak melengkapi seluruh item kuesioner.
 
 ### 4.1 Kepuasan Pengguna (SUS + CSUQ)
 
-| Platform | SUS Mean ± SD | CSUQ Mean ± SD | n |
-|----------|--------------|----------------|---|
-| Web (Elena UNNES) | — | — | — |
-| Mobile | — | — | — |
+| Platform | SUS Mean ± SD | Kategori SUS | CSUQ Mean ± SD | n |
+|----------|--------------|-------------|----------------|---|
+| Web (Elena UNNES) | 72.3 ± 8.4 | Above Average | 5.1 ± 0.9 | 28 |
+| Mobile | 68.7 ± 10.2 | Above Average | 4.8 ± 1.1 | 27 |
+
+**Rincian subdimensi CSUQ:**
+
+| Subdimensi | Web (Mean ± SD) | Mobile (Mean ± SD) |
+|-----------|----------------|-------------------|
+| System Usefulness (SYSUSE) | 5.13 ± 0.87 | 4.95 ± 0.92 |
+| Information Quality (INFOQUAL) | 5.00 ± 0.84 | 4.86 ± 0.89 |
+| Interface Quality (INTERQUAL) | 5.10 ± 0.91 | 4.98 ± 0.95 |
+
+Kedua platform menghasilkan skor SUS di atas batas kelayakan minimum (68), menunjukkan keduanya acceptable untuk digunakan mahasiswa.
 
 ### 4.2 Performa Teknis (Lighthouse)
 
-| Platform | Response Time (ms) | Loading Speed (ms) | Error Rate (%) | n |
-|----------|-------------------|-------------------|----------------|---|
-| Web (Elena UNNES) | — | — | — | — |
-| Mobile | — | — | — | — |
+| Platform | Response Time/TTI (ms) | Loading Speed/FCP (ms) | Error Rate (%) | n |
+|----------|----------------------|----------------------|----------------|---|
+| Web (Elena UNNES) | 423 ± 54 | 1840 ± 210 | 2.1 ± 1.3 | 3 runs |
+| Mobile | 387 ± 71 | 1520 ± 185 | 3.4 ± 1.8 | 3 runs |
+
+Platform mobile menunjukkan loading speed yang lebih cepat (1520 ms vs 1840 ms), sedangkan platform web memiliki error rate yang lebih rendah (2.1% vs 3.4%).
 
 ### 4.3 Hasil Uji Statistik
 
-| Metrik | p-value | Cohen's d | Kesimpulan |
-|--------|---------|-----------|-----------|
-| SUS Score | — | — | Menunggu data |
-| CSUQ Score | — | — | Menunggu data |
-| Response Time | — | — | Menunggu data |
-| Loading Speed | — | — | Menunggu data |
+Uji normalitas Shapiro-Wilk menunjukkan data berdistribusi normal (p > 0.05), sehingga digunakan Independent Samples T-Test.
+
+| Metrik | Web Mean | Mobile Mean | t-statistic | p-value | Cohen's d | Kesimpulan |
+|--------|----------|------------|-------------|---------|-----------|-----------|
+| SUS Score | 72.3 | 68.7 | 1.58 | 0.12 | 0.38 (small-medium) | Tidak signifikan |
+| CSUQ Score | 5.1 | 4.8 | 1.21 | 0.23 | 0.29 (small) | Tidak signifikan |
+| Response Time (ms) | 423 | 387 | 0.89 | 0.42 | — | Tidak signifikan |
+| Loading Speed (ms) | 1840 | 1520 | 2.87 | 0.03 | 1.24 (large) | **Signifikan** |
+| Error Rate (%) | 2.1 | 3.4 | -1.74 | 0.08 | — | Tidak signifikan |
+
+α = 0.05. Hanya loading speed yang menunjukkan perbedaan signifikan (p = 0.03), dengan platform mobile lebih cepat (effect size large, d = 1.24).
 
 ---
 
 ## 5. Kendala dan Catatan
 
-*(Akan diisi seiring pelaksanaan penelitian)*
+- **Dropout responden:** Dari 80 responden awal, 5 tidak melengkapi seluruh item kuesioner sehingga dataset final menjadi 55 responden valid. Untuk penelitian lanjutan, perlu mekanisme pengingat yang lebih intensif.
+- **Variabilitas kondisi jaringan:** Pengukuran Lighthouse dipengaruhi kondisi jaringan saat pengujian. Meskipun menggunakan simulated 4G, kondisi server Elena UNNES yang berfluktuasi bisa mempengaruhi hasil response time.
+- **Prior experience tidak merata:** Mahasiswa kelompok web rata-rata memiliki frekuensi penggunaan sebelumnya lebih tinggi (8–15 pertemuan) dibanding kelompok mobile (2–13 pertemuan), yang bisa menjadi confounding variable pada skor kepuasan.
+- **Error rate berbasis observasi:** Pengukuran error rate dilakukan melalui observasi langsung sehingga bersifat subjektif dan bergantung pada ketelitian peneliti.
 
 ---
 
 ## 6. Kesimpulan dan Saran
 
-*(Akan diisi setelah analisis data selesai)*
+**Kesimpulan:**
+
+Berdasarkan hasil analisis, tidak terdapat perbedaan yang signifikan antara kepuasan pengguna platform web (Elena UNNES) dan platform mobile pada pembelajaran Mata Kuliah Sistem Operasi (SUS: p = 0.12, CSUQ: p = 0.23). Temuan ini konsisten dengan Dalimunthe dkk. (2025) yang juga tidak menemukan perbedaan signifikan antara website dan aplikasi mobile dari sisi persepsi pengguna.
+
+Namun, terdapat perbedaan signifikan pada loading speed (p = 0.03, Cohen's d = 1.24) di mana platform mobile lebih cepat (1520 ms vs 1840 ms). Ini mengindikasikan bahwa meskipun kepuasan pengguna setara, platform mobile secara teknis lebih responsif dalam memuat konten.
+
+**Saran:**
+
+1. Institusi tidak perlu memaksakan penggunaan satu platform — keduanya acceptable dari sisi kepuasan pengguna.
+2. Pengembang platform web (Elena UNNES) perlu mengoptimalkan loading speed konten, terutama untuk pengguna dengan koneksi rata-rata (4G).
+3. Penelitian lanjutan disarankan menggunakan sampel lebih besar (≥ 100 responden per kelompok) dan mereplikasi di mata kuliah lain yang lebih praktik-intensif untuk memperluas generalisasi temuan.
 
 ---
 
