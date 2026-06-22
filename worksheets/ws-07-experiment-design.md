@@ -122,14 +122,14 @@ Evaluasi apakah desain eksperimen di Latihan 1 sudah fair.
 
 | Kriteria | Status | Detail |
 |----------|--------|--------|
-| Dataset identik | ✓ | Semua mahasiswa ambil mata kuliah Sistem Operasi yang sama |
-| Preprocessing setara | ✓ | Kuesioner UEQ dan SUS sama untuk semua; technical monitoring dengan tool yang sama |
-| Tuning effort setara | ✓ | User tidak di-force prefer platform tertentu; mereka choose naturally |
+| Dataset identik | ✓ | Semua mahasiswa ambil mata kuliah Sistem Operasi yang sama, konten identik |
+| Preprocessing setara | ✓ | Kuesioner SUS dan CSUQ sama untuk semua kelompok; Lighthouse dijalankan dengan konfigurasi identik (simulated 4G) |
+| Tuning effort setara | ✓ | Tidak ada intervensi pada platform — keduanya digunakan dalam kondisi natural tanpa modifikasi |
 | Environment identik | ✓ | Semester sama, instruktur sama, jadwal kuliah sama; hanya platform yang berbeda |
-| Metrik evaluasi sama | ✓ | Semua group diukur dengan metrik yang identik (UEQ, SUS, response time, memory) |
+| Metrik evaluasi sama | ✓ | Semua kelompok diukur dengan metrik yang identik (SUS, CSUQ, response time, loading speed, error rate) |
 
 **Ada yang tidak fair?** [ ] Ya / [✓] Tidak
-> Jika ya, bagaimana cara memperbaikinya? Design ini fair karena kedua group mendapat treatment yang equal dalam semua aspek kecuali platform choice (yang merupakan IV yang ingin diukur)
+> Desain sudah fair karena kedua kelompok mendapat treatment yang equal dalam semua aspek kecuali platform (yang merupakan IV). Potensi unfairness: kondisi jaringan saat pengisian kuesioner bisa berbeda — dimitigasi dengan pengisian di kampus menggunakan WiFi yang sama.
 
 ---
 
